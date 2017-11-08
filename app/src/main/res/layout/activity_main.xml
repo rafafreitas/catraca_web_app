@@ -11,7 +11,9 @@
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        >
 
         <TextView
             android:id="@+id/txt"
@@ -26,12 +28,11 @@
             />
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="80dp"
+            android:layout_height="100dp"
             android:layout_toRightOf="@+id/txt"
-            android:minHeight="100dp"
-            android:minWidth="100dp"
-            android:src="@mipmap/catraca_home" />
+            android:src="@drawable/catraca_01"
+            />
     </RelativeLayout>
 
     <android.support.design.widget.TextInputLayout
