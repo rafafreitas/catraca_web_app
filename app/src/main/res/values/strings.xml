@@ -1,3 +1,24 @@
 <resources>
-    <string name="app_name">catraca_web_app</string>
+    <!-- Inputs -->
+    <string name="app_name">CatracaWeb</string>
+    <string name="app_name_ok">CatracaWeb</string>
+    <!-- Inputs -->
+    <string name="hint_login">Login</string>
+    <string name="hint_pass">Senha</string>
+    <string name="hint_date">Data de Nascimento</string>
+    <string name="hint_email">E-Mail</string>
+    <!-- Botões -->
+    <string name="btn_access">Acessar</string>
+    <string name="btn_forgot">Esqueceu a senha?</string>
+    <string name="btn_new_client">Não é cliente?</string>
+    <string name="btn_reset_pass">Receber nova senha</string>
+    <!-- Avisos -->
+    <string name="info_new_user_01">Novo por aqui?</string>
+    <string name="info_new_user_02">Obrigado!</string>
+    <string name="info_new_user_03">Para utilizar nossos serviços é necessário realizar um pequeno cadastro</string>
+    <string name="info_reset_pass_01">Esqueceu a senha?</string>
+    <string name="info_reset_pass_02">Sem problema</string>
+    <string name="info_reset_pass_03">* Uma nova senha será enviada para seu E-Mail</string>
+    <string name="info_copyright">©-CatracaWeb - 2017</string>
+
 </resources>
