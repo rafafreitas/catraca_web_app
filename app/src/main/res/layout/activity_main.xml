@@ -23,14 +23,15 @@
             android:gravity="center"
             android:text="@string/app_name_ok"
             android:textColor="@color/colorWhite"
-            android:textSize="20dp"
-            android:layout_marginTop="50dp"
+            android:textSize="22dp"
+            android:layout_marginTop="28dp"
             />
 
         <ImageView
             android:layout_width="80dp"
             android:layout_height="100dp"
             android:layout_toRightOf="@+id/txt"
+            android:layout_marginLeft="-30dp"
             android:src="@drawable/catraca_01"
             />
     </RelativeLayout>
