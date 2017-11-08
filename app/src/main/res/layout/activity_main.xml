@@ -10,38 +10,48 @@
     tools:context="com.example.rafael.catraca_web_app.MainActivity">
 
     <RelativeLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/txt"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="monospace"
             android:gravity="center"
             android:text="@string/app_name_ok"
             android:textColor="@color/colorWhite"
-            android:textSize="25dp"
+            android:textSize="20dp"
             android:layout_marginTop="50dp"
             />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/txt"
+            android:minHeight="100dp"
+            android:minWidth="100dp"
+            android:src="@mipmap/catraca_home" />
     </RelativeLayout>
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/input_layout_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:paddingRight="10dp"
         android:paddingLeft="10dp"
         >
 
         <EditText
             android:id="@+id/input_login"
+            android:inputType="text"
+            android:imeOptions="actionNext"
+            android:maxLines="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_login"
-            android:textColorHint="@color/colorAccent"
-            android:textColor="@color/colorWhite"
+
             />
 
     </android.support.design.widget.TextInputLayout>
@@ -53,14 +63,19 @@
         android:layout_marginTop="20dp"
         android:paddingRight="10dp"
         android:paddingLeft="10dp"
+
         >
 
         <EditText
             android:id="@+id/input_pass"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
+            android:maxLines="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_pass"
-            android:textColorHint="@color/colorWhite"
+            android:textColorHint="@color/colorAccent"
+            android:textColor="@color/colorBlack"
             />
 
     </android.support.design.widget.TextInputLayout>
@@ -71,24 +86,28 @@
         android:layout_gravity="center"
         android:text="@string/btn_access"
         android:background="@color/color_btn"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
 
         />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:textSize="7pt"
-        android:text="@string/btn_forgot"/>
+        android:text="@string/btn_forgot"
+        android:textColor="@color/colorWhite"
+        />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:textSize="7pt"
-        android:text="@string/btn_new_client"/>
+        android:text="@string/btn_new_client"
+        android:textColor="@color/colorWhite"
+        />
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -100,8 +119,10 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:textSize="7pt"
+            android:text="@string/info_copyright"
+            android:textColor="@color/colorWhite"
 
-            android:text="@string/info_copyright"/>
+            />
 
     </RelativeLayout>
 
