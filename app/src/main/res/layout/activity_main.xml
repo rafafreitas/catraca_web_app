@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:orientation="vertical"
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/main_background_selector"
     android:padding="10dp"
+    android:fillViewport="true"
     tools:context="com.example.rafael.catraca_web_app.MainActivity">
 
-    <RelativeLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -36,100 +42,102 @@
             />
     </RelativeLayout>
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/input_layout_login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:paddingRight="10dp"
-        android:paddingLeft="10dp"
-        >
 
-        <EditText
-            android:id="@+id/input_login"
-            android:inputType="text"
-            android:imeOptions="actionNext"
-            android:maxLines="1"
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_login"
+            android:layout_marginTop="20dp"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            >
 
-            />
+            <EditText
+                android:id="@+id/input_login"
+                android:inputType="text"
+                android:imeOptions="actionNext"
+                android:maxLines="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_login"
 
-    </android.support.design.widget.TextInputLayout>
+                />
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/input_layout_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:paddingRight="10dp"
-        android:paddingLeft="10dp"
+        </android.support.design.widget.TextInputLayout>
 
-        >
-
-        <EditText
-            android:id="@+id/input_pass"
-            android:imeOptions="actionDone"
-            android:inputType="textPassword"
-            android:maxLines="1"
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_pass"
-            android:textColorHint="@color/colorAccent"
-            android:textColor="@color/colorBlack"
+            android:layout_marginTop="20dp"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+
+            >
+
+            <EditText
+                android:id="@+id/input_pass"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_pass"
+                android:textColorHint="@color/colorAccent"
+                android:textColor="@color/colorBlack"
+                />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/btn_access"
+            android:background="@color/color_btn"
+            android:layout_marginTop="20dp"
+
             />
-
-    </android.support.design.widget.TextInputLayout>
-
-    <Button
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/btn_access"
-        android:background="@color/color_btn"
-        android:layout_marginTop="20dp"
-
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:textSize="7pt"
-        android:text="@string/btn_forgot"
-        android:textColor="@color/colorWhite"
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="15dp"
-        android:textSize="7pt"
-        android:text="@string/btn_new_client"
-        android:textColor="@color/colorWhite"
-        />
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:textSize="7pt"
+            android:text="@string/btn_forgot"
+            android:textColor="@color/colorWhite"
+            />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
             android:textSize="7pt"
-            android:text="@string/info_copyright"
+            android:text="@string/btn_new_client"
             android:textColor="@color/colorWhite"
-
             />
 
-    </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:textSize="7pt"
+                android:text="@string/info_copyright"
+                android:textColor="@color/colorWhite"
+
+                />
+
+        </RelativeLayout>
+
+    </LinearLayout>
 
 
 
-
-
-</LinearLayout>
+</ScrollView>
