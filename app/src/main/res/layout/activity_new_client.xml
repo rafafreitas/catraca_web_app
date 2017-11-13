@@ -59,9 +59,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="monospace"
-                android:text="@string/info_new_user_01"
-                android:textColor="@color/colorBlack"
+                android:text="@string/info_new_user_03"
+                android:textColor="@color/colorWhite"
                 android:textSize="20dp"
+                android:background="@color/cardview_dark_background"
                 />
         </android.support.v7.widget.CardView>
 
