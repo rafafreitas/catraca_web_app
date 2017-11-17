@@ -3,13 +3,12 @@
     <string name="app_name">CatracaWeb</string>
     <string name="app_name_ok">CatracaWeb</string>
     <!-- Inputs -->
+    <string name="hint_nome">Informe seu Nome</string>
     <string name="hint_login">Login</string>
+    <string name="hint_login_cad">Login para acesso</string>
     <string name="hint_pass">Senha</string>
-    <string name="hint_nome">Nome</string>
-    <string name="hint_email">E-Mail</string>
-    <string name="hint_cpf">CPF</string>
-    <string name="hint_cnpj">CNPJ</string>
     <string name="hint_date">Data de Nascimento</string>
+    <string name="hint_email">E-Mail</string>
     <!-- Botões -->
     <string name="btn_access">Acessar</string>
     <string name="btn_forgot">Esqueceu a senha?</string>
