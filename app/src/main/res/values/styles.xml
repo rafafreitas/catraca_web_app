@@ -5,6 +5,9 @@
         <item name="colorPrimary">@color/colorNPrimary</item>
         <item name="colorPrimaryDark">@color/colorNPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorHint">@color/colorWhite</item>
     </style>
+
+
 
 </resources>
