@@ -103,19 +103,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:textSize="7pt"
+            android:layout_marginTop="30dp"
+            android:textSize="10pt"
             android:text="@string/btn_forgot"
             android:textColor="@color/colorWhite"
             />
 
         <TextView
+            android:id="@+id/newClient"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
-            android:textSize="7pt"
+            android:layout_marginBottom="30dp"
+            android:textSize="10pt"
             android:text="@string/btn_new_client"
+
             android:textColor="@color/colorWhite"
             />
 
