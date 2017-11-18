@@ -29,8 +29,8 @@
     <string name="info_copyright">©-CatracaWeb - 2017</string>
 
     <string-array name="types_user">
-        <item>CPF</item>
-        <item>CNPJ</item>
+        <item id="1" >CPF</item>
+        <item id="2" >CNPJ</item>
     </string-array>
 
 </resources>
