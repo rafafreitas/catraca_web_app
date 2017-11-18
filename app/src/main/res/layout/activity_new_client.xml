@@ -6,13 +6,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/main_background_selector"
-    android:padding="10dp"
+    android:paddingRight="10dp"
+    android:paddingLeft="10dp"
     android:fillViewport="true"
     tools:context="com.example.rafael.catraca_web_app.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         android:orientation="vertical"
         >
 
@@ -45,7 +48,6 @@
 
 
         </RelativeLayout>
-
 
         <android.support.v7.widget.CardView
             xmlns:card_view="http://schemas.android.com/apk/res-auto"
@@ -114,29 +116,6 @@
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/input_layout_date"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:paddingRight="15dp"
-            android:paddingLeft="15dp"
-            >
-
-            <EditText
-                android:id="@+id/input_date"
-                android:imeOptions="actionNext"
-                android:inputType="date"
-                android:maxLines="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/hint_date"
-                android:textColorHint="@color/colorAccent"
-                android:textColor="@color/colorBlack"
-                />
-
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
             android:id="@+id/input_layout_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -148,12 +127,65 @@
             <EditText
                 android:id="@+id/input_password"
                 android:inputType="textPassword"
-                android:imeOptions="actionDone"
+                android:imeOptions="actionNext"
                 android:maxLines="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/hint_pass_cad"
+                android:hint="@string/hint_pass"
 
+                />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:paddingRight="15dp"
+            android:paddingLeft="15dp"
+            >
+
+            <Spinner
+                android:id="@+id/typeUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+            <EditText
+                android:id="@+id/input_cpf_cnpj"
+                android:inputType="text"
+                android:layout_toRightOf="@+id/typeUser"
+                android:imeOptions="actionNext"
+                android:maxLines="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_cpf_cnpj"
+
+                />
+
+
+
+        </RelativeLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:paddingRight="15dp"
+            android:paddingLeft="15dp"
+            >
+
+            <EditText
+                android:id="@+id/input_date"
+                android:imeOptions="actionDone"
+                android:inputType="date"
+                android:maxLines="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_date_fis"
+                android:textColorHint="@color/colorAccent"
+                android:textColor="@color/colorBlack"
                 />
 
         </android.support.design.widget.TextInputLayout>

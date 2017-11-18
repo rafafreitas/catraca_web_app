@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/main_background_selector"
-    android:padding="10dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
     android:fillViewport="true"
     tools:context="com.example.rafael.catraca_web_app.MainActivity">
 
@@ -13,6 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         >
 
         <RelativeLayout
@@ -100,10 +103,13 @@
 
             />
         <TextView
+            android:id="@+id/forgotPass"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
+            android:layout_marginBottom="15dp"
             android:textSize="10pt"
             android:text="@string/btn_forgot"
             android:textColor="@color/colorWhite"
@@ -111,14 +117,13 @@
 
         <TextView
             android:id="@+id/newClient"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="40dp"
             android:textSize="10pt"
             android:text="@string/btn_new_client"
-
             android:textColor="@color/colorWhite"
             />
 
