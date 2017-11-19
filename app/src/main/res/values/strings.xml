@@ -28,6 +28,11 @@
     <string name="info_reset_pass_03">* Uma nova senha será enviada para seu E-Mail</string>
     <string name="info_copyright">©-CatracaWeb - 2017</string>
 
+    <!-- Validações de Formulário-->
+    <string name="err_msg_required">Preencha este campo!</string>
+    <string name="err_msg_email">Informe um E-Mail válido</string>
+    <string name="err_msg_password">Informe uma senha!</string>
+
     <string-array name="types_user">
         <item id="1" >CPF</item>
         <item id="2" >CNPJ</item>
