@@ -30,8 +30,11 @@
 
     <!-- Validações de Formulário-->
     <string name="err_msg_required">Preencha este campo!</string>
+    <string name="err_msg_nome">Informe um Nome</string>
     <string name="err_msg_email">Informe um E-Mail válido</string>
     <string name="err_msg_password">Informe uma senha!</string>
+    <string name="err_msg_date">Informe uma data válida!</string>
+
 
     <string-array name="types_user">
         <item id="1" >CPF</item>
