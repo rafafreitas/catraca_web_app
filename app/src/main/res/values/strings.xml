@@ -34,6 +34,8 @@
     <string name="err_msg_email">Informe um E-Mail válido</string>
     <string name="err_msg_password">Informe uma senha!</string>
     <string name="err_msg_date">Informe uma data válida!</string>
+    <string name="err_msg_cpf">Informe uma CPF válido!</string>
+    <string name="err_msg_cnpj">Informe uma CNPJ válido!</string>
 
 
     <string-array name="types_user">

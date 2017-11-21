@@ -35,9 +35,9 @@ public abstract class CNP {
             return cnpj.equals(cnpj.substring(0,12) + digito1.toString() + digito2.toString());
         }
 
-        public static void main(String[] args) {
-            System.out.printf("CPF Valido:%s \n", CNP.isValidCPF("01115375502"));
-            System.out.printf("CNPJ Valido:%s \n", CNP.isValidCNPJ("13642634756318"));
-        }
+//        public static void main(String[] args) {
+//            System.out.printf("CPF Valido:%s \n", CNP.isValidCPF("01115375502"));
+//            System.out.printf("CNPJ Valido:%s \n", CNP.isValidCNPJ("13642634756318"));
+//        }
 
 }

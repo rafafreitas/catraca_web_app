@@ -31,7 +31,11 @@ public class NewClient extends AppCompatActivity {
     private TextWatcher cpfMask;
     private TextWatcher cnpjMask;
 
+
     private static final String TAG = "CadastroActivity";
+    private boolean cpf;
+    private boolean cnpj;
+
     private Vibrator vib;
     Animation animShake;
     private EditText inputName, inputEmail, inputPassword, inputCpfCnpj, inputDate;
@@ -86,6 +90,8 @@ public class NewClient extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 switch (i){
                     case 0:
+                        cpf = true;
+                        cnpj = false;
                         //Colocando Máscara
                         cpfCnpjUser.setText("");
                         cpfCnpjUser.removeTextChangedListener(cnpjMask);
@@ -98,6 +104,8 @@ public class NewClient extends AppCompatActivity {
                     break;
 
                     case 1:
+                        cpf = false;
+                        cnpj = true;
                         //Colocando Máscara
                         cpfCnpjUser.setText("");
                         cpfCnpjUser.removeTextChangedListener(cnpjMask);
@@ -159,18 +167,18 @@ public class NewClient extends AppCompatActivity {
             vib.vibrate(120);
             return;
         }
+        if (!checkCPF()) {
+            inputCpfCnpj.setAnimation(animShake);
+            inputCpfCnpj.startAnimation(animShake);
+            vib.vibrate(120);
+            return;
+        }
         if (!checkDate()) {
             inputDate.setAnimation(animShake);
             inputDate.startAnimation(animShake);
             vib.vibrate(120);
             return;
         }
-//        if (!checkCPF()) {
-//            inputCpfCnpj.setAnimation(animShake);
-//            inputCpfCnpj.startAnimation(animShake);
-//            vib.vibrate(120);
-//            return;
-//        }
         inputLayoutName.setErrorEnabled(false);
         inputLayoutEmail.setErrorEnabled(false);
         inputLayoutPassword.setErrorEnabled(false);
@@ -184,6 +192,7 @@ public class NewClient extends AppCompatActivity {
             inputLayoutName.setErrorEnabled(true);
             inputLayoutName.setError(getString(R.string.err_msg_nome));
             inputName.setError(getString(R.string.err_msg_required));
+            requestFocus(inputName);
             return false;
         }
         inputLayoutName.setErrorEnabled(false);
@@ -207,11 +216,62 @@ public class NewClient extends AppCompatActivity {
     private boolean checkPassword() {
         if (inputPassword.getText().toString().trim().isEmpty()) {
 
+            inputLayoutPassword.setErrorEnabled(true);
             inputLayoutPassword.setError(getString(R.string.err_msg_password));
+            inputPassword.setError(getString(R.string.err_msg_required));
             requestFocus(inputPassword);
             return false;
         }
         inputLayoutPassword.setErrorEnabled(false);
+        return true;
+    }
+
+    private boolean checkCPF() {
+        if(cpf){
+            if (inputCpfCnpj.getText().toString().trim().isEmpty()) {
+
+                inputLayoutCpfCnjp.setErrorEnabled(true);
+                inputLayoutCpfCnjp.setError(getString(R.string.err_msg_cpf));
+                inputCpfCnpj.setError(getString(R.string.err_msg_required));
+                requestFocus(inputCpfCnpj);
+                return false;
+            }else{
+                String Str = inputCpfCnpj.getText().toString();
+                Str = Str.replace(".", "");
+                Str = Str.replace("-", "");
+
+                boolean retorno = CNP.isValidCPF(Str);
+                if (!retorno) {
+                    return false;
+                }
+                // return CNP.isValidCPF(Str);
+
+            }
+        }
+        if(cnpj){
+            if (inputCpfCnpj.getText().toString().trim().isEmpty()) {
+
+                inputLayoutCpfCnjp.setErrorEnabled(true);
+                inputLayoutCpfCnjp.setError(getString(R.string.err_msg_cnpj));
+                inputCpfCnpj.setError(getString(R.string.err_msg_required));
+                requestFocus(inputCpfCnpj);
+
+                return false;
+            }else{
+                String Str = inputCpfCnpj.getText().toString();
+                Str = Str.replace(".", "");
+                Str = Str.replace("/", "");
+                Str = Str.replace("-", "");
+
+                boolean retorno = CNP.isValidCPF(Str);
+                if (!retorno) {
+                    return false;
+                }
+                //return CNP.isValidCNPJ(Str);
+
+            }
+        }
+        inputLayoutCpfCnjp.setErrorEnabled(false);
         return true;
     }
 
@@ -222,19 +282,17 @@ public class NewClient extends AppCompatActivity {
             String[] s = inputDate.getText().toString().split("/");
             int date = Integer.parseInt(s[0]);
             int month = Integer.parseInt(s[1]);
+            int year = Integer.parseInt(s[2]);
 
-//            Toast.makeText(getApplicationContext(), s[0], Toast.LENGTH_SHORT).show();
-//            Toast.makeText(getApplicationContext(), s[1], Toast.LENGTH_SHORT).show();
-
-
-            if (date < 32 && month < 13)
+            if (date < 32 && month < 13 && year > 1900 && year < 2019)
                 isDateValid = true;
 
             if (inputDate.getText().toString().trim().isEmpty() || !isDateValid) {
 
+                inputLayoutDate.setErrorEnabled(true);
                 inputLayoutDate.setError(getString(R.string.err_msg_date));
-                requestFocus(inputDate);
                 inputDate.setError(getString(R.string.err_msg_required));
+                requestFocus(inputDate);
 
                 return false;
             }
