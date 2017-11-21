@@ -66,6 +66,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        final TextView txtforgot = this.findViewById(R.id.forgotPass);
+        txtforgot.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(MainActivity.this,ResetPass.class);
+                startActivity(intent);
+            }
+        });
+
     }//onCreate
 
     private void submitForm() {

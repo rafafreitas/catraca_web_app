@@ -21,6 +21,9 @@
         <activity android:name=".NewClient" >
         </activity>
 
+        <activity android:name=".ResetPass" >
+        </activity>
+
     </application>
 
 </manifest>

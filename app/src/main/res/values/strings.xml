@@ -5,27 +5,34 @@
     <!-- Inputs -->
     <string name="hint_nome">Informe seu Nome</string>
     <string name="hint_email_cad">E-Mail para acesso</string>
+    <string name="hint_email_reset">E-Mail cadastrado</string>
     <string name="hint_email">E-Mail</string>
     <string name="hint_pass">Senha</string>
     <string name="hint_cpf_cnpj">Informe-o aqui</string>
     <string name="hint_date_fis">Data de Nascimento</string>
     <string name="hint_date_jur">Fundação da Empresa</string>
+    <string name="hint_date_reset">Data Cadastrada</string>
 
     <!-- Botões -->
     <string name="btn_access">Acessar</string>
+    <string name="btn_cad">Cadastrar</string>
+    <string name="btn_reset_pass">Receber nova senha</string>
     <string name="btn_client">Já é cliente?</string>
+    <string name="btn_login">Fazer Login</string>
     <string name="btn_forgot">Esqueceu a senha?</string>
     <string name="btn_new_client">Não é cliente?</string>
-    <string name="btn_reset_pass">Receber nova senha</string>
+    <string name="btn_question_pass">* Em dúvida sobre a data?</string>
     <!-- Avisos -->
     <string name="info_new_user_01">Novo por aqui?\n Obrigado!</string>
     <string name="info_new_user_02">Obrigado!</string>
     <string name="info_new_user_03">Para utilizar nossos serviços é necessário realizar um pequeno cadastro</string>
     <string name="info_new_user_cad">Necessário para recuperação da senha no futuro!</string>
 
-    <string name="info_reset_pass_01">Esqueceu a senha?</string>
+    <string name="info_reset_pass_01">Esqueceu a senha?\n Sem problema</string>
     <string name="info_reset_pass_02">Sem problema</string>
     <string name="info_reset_pass_03">* Uma nova senha será enviada para seu E-Mail</string>
+    <string name="info_reset_pass_04">Informar:\n Data de Nascimento ou \n Fundação da Empresa.</string>
+
     <string name="info_copyright">©-CatracaWeb - 2017</string>
 
     <!-- Validações de Formulário-->
