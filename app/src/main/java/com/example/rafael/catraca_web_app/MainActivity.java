@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast toast = Toast.makeText(context, text, duration);
                 toast.show();
 
-                Intent intent = new Intent(MainActivity.this,NewClient.class);
+                Intent intent = new Intent(MainActivity.this,NewClientActivity.class);
                 startActivity(intent);
             }
         });
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(MainActivity.this,ResetPass.class);
+                Intent intent = new Intent(MainActivity.this,ResetPassActivity.class);
                 startActivity(intent);
             }
         });

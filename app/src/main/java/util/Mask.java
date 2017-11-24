@@ -1,4 +1,4 @@
-package com.example.rafael.catraca_web_app;
+package util;
 
 import android.text.TextWatcher;
 import android.text.Editable;

@@ -1,4 +1,4 @@
-package com.example.rafael.catraca_web_app;
+package util;
 
 /**
  * Created by rafael on 20/11/17.

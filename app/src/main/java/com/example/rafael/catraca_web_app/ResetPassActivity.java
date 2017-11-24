@@ -16,11 +16,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import util.Mask;
+
 /**
  * Created by Rafael Freitas on 21/11/2017.
  */
 
-public class ResetPass extends AppCompatActivity {
+public class ResetPassActivity extends AppCompatActivity {
     private TextWatcher dateMask;
     private static final String TAG = "ResetActivity";
 

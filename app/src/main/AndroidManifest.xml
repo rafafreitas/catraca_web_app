@@ -18,10 +18,10 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".NewClient" >
+        <activity android:name=".NewClientActivity" >
         </activity>
 
-        <activity android:name=".ResetPass" >
+        <activity android:name=".ResetPassActivity" >
         </activity>
 
     </application>

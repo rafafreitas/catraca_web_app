@@ -4,9 +4,7 @@ package com.example.rafael.catraca_web_app;
  * Created by rafael on 17/11/17.
  */
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Vibrator;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -25,8 +23,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import util.CNP;
+import util.Mask;
 
-public class NewClient extends AppCompatActivity {
+
+public class NewClientActivity extends AppCompatActivity {
     private TextWatcher dateMask;
     private TextWatcher cpfMask;
     private TextWatcher cnpjMask;
@@ -138,7 +139,7 @@ public class NewClient extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                //Intent intent = new Intent(NewClient.this,MainActivity.class);
+                //Intent intent = new Intent(NewClientActivity.this,MainActivity.class);
                 //startActivity(intent);
                 finish();
             }
