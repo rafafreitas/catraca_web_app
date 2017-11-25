@@ -22,7 +22,7 @@
     <string name="btn_login">Fazer Login</string>
     <string name="btn_forgot">Esqueceu a senha?</string>
     <string name="btn_new_client">Não é cliente?</string>
-    <string name="btn_question_pass">* Em dúvida sobre a data?</string>
+    <string name="btn_question_pass">Qual data?</string>
     <!-- Avisos -->
     <string name="info_new_user_01">Novo por aqui?\n Obrigado!</string>
     <string name="info_new_user_02">Obrigado!</string>
@@ -47,8 +47,8 @@
 
 
     <string-array name="types_user">
-        <item id="1" >CPF</item>
-        <item id="2" >CNPJ</item>
+        <item id="1">CPF</item>
+        <item id="2">CNPJ</item>
     </string-array>
 
 </resources>

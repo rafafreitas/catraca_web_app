@@ -3,6 +3,7 @@
     package="com.example.rafael.catraca_web_app">
 
     <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,24 +13,34 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:theme="@style/AppCompat.TelaCheia"
-            >
+            android:theme="@style/AppCompat.TelaCheia">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".LoginActivity" >
+        <activity
+            android:name=".LoginActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            >
         </activity>
 
-        <activity android:name=".NewClientActivity" >
+        <activity
+            android:name=".NewClientActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            >
         </activity>
 
-        <activity android:name=".ResetPassActivity" >
+        <activity
+            android:name=".ResetPassActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            >
         </activity>
 
+        <activity
+            android:name=".HomeActivity">
+        </activity>
     </application>
 
 </manifest>
