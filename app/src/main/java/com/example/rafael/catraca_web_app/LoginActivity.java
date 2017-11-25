@@ -57,13 +57,7 @@ public class LoginActivity extends AppCompatActivity{
 
             @Override
             public void onClick(View v) {
-                Context context = getApplicationContext();
-                CharSequence text = "É só fazer o cadastro...";
-                int duration = Toast.LENGTH_SHORT;
-
-                Toast toast = Toast.makeText(context, text, duration);
-                toast.show();
-
+                Toast.makeText(getApplicationContext(), "É só fazer o cadastro...", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(LoginActivity.this,NewClientActivity.class);
                 startActivity(intent);
             }
@@ -74,7 +68,6 @@ public class LoginActivity extends AppCompatActivity{
 
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent(LoginActivity.this,ResetPassActivity.class);
                 startActivity(intent);
             }
@@ -100,6 +93,9 @@ public class LoginActivity extends AppCompatActivity{
         inputLayoutEmail.setErrorEnabled(false);
         inputLayoutPassword.setErrorEnabled(false);
         Toast.makeText(getApplicationContext(), "Campos Válidos !!", Toast.LENGTH_SHORT).show();
+
+        Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
+        startActivity(intent);
     }
 
     private boolean checkEmail() {

@@ -58,7 +58,7 @@
 
             <EditText
                 android:id="@+id/input_login"
-                android:inputType="text"
+                android:inputType="textEmailAddress"
                 android:imeOptions="actionNext"
                 android:maxLines="1"
                 android:layout_width="match_parent"

@@ -13,5 +13,13 @@
     </style>
 
 
+    <style name="AppThemeAuth" parent="Theme.AppCompat.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorNPrimary</item>
+        <item name="colorPrimaryDark">@color/colorNPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorHint">@color/colorWhite</item>
+    </style>
+
 
 </resources>

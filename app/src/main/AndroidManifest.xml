@@ -34,12 +34,13 @@
 
         <activity
             android:name=".ResetPassActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:theme="@style/AppThemeAuth"
             >
         </activity>
 
         <activity
-            android:name=".HomeActivity">
+            android:name=".HomeActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
         </activity>
     </application>
 
