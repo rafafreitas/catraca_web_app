@@ -2,6 +2,7 @@
     <!-- Inputs -->
     <string name="app_name">CatracaWeb</string>
     <string name="app_name_ok">CatracaWeb</string>
+    <string name="app_splash">Controle de Acesso</string>
     <!-- Inputs -->
     <string name="hint_nome">Informe seu Nome</string>
     <string name="hint_email_cad">E-Mail para acesso</string>
