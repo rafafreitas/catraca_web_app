@@ -92,6 +92,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_email_reset"
+                android:drawableStart="@drawable/ic_mail_outline_black"
+                android:drawablePadding="5dp"
                 />
 
         </android.support.design.widget.TextInputLayout>
@@ -114,10 +116,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_date_reset"
-                android:drawableEnd="@drawable/ic_info_black"
                 android:drawablePadding="5dp"
                 android:textColorHint="@color/colorAccent"
                 android:textColor="@color/colorBlack"
+                android:drawableStart="@drawable/ic_date_range_black"
+
                 />
 
         </android.support.design.widget.TextInputLayout>
@@ -137,9 +140,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="30dp"
-            android:textSize="9pt"
-            android:text="@string/btn_question_pass"
+            android:layout_marginTop="5dp"
+            android:textSize="6pt"
+            android:text="@string/info_reset_pass_05"
             android:textColor="@color/colorWhite"
             />
 

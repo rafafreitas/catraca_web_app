@@ -64,7 +64,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_email"
-                android:drawableStart="@drawable/ic_person_black"
+                android:drawableStart="@drawable/ic_mail_outline_black"
                 android:drawablePadding="5dp"/>
 
             />
@@ -91,7 +91,7 @@
                 android:hint="@string/hint_pass"
                 android:textColorHint="@color/colorAccent"
                 android:textColor="@color/colorBlack"
-                android:drawableStart="@drawable/ic_lock_black"
+                android:drawableStart="@drawable/ic_vpn_key_black"
                 android:drawablePadding="5dp"
                 />
 

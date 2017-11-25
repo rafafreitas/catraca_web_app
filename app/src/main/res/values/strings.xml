@@ -12,7 +12,7 @@
     <string name="hint_cpf_cnpj">Informe-o aqui</string>
     <string name="hint_date_fis">Data de Nascimento</string>
     <string name="hint_date_jur">Fundação da Empresa</string>
-    <string name="hint_date_reset">Data Cadastrada</string>
+    <string name="hint_date_reset">Data Cadastrada*</string>
 
     <!-- Botões -->
     <string name="btn_access">Acessar</string>
@@ -33,6 +33,7 @@
     <string name="info_reset_pass_02">Sem problema</string>
     <string name="info_reset_pass_03">* Uma nova senha será enviada para seu E-Mail</string>
     <string name="info_reset_pass_04">Informar:\n Data de Nascimento ou \n Fundação da Empresa.</string>
+    <string name="info_reset_pass_05">*Nascimento ou Fundação da Empresa.</string>
 
     <string name="info_copyright">©-CatracaWeb - 2017</string>
 
