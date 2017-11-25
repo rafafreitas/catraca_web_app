@@ -11,15 +11,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_main);
         Handler handle = new Handler();
         handle.postDelayed(new Runnable() {
             @Override
             public void run() {
                 mostrarLogin();
             }
-        }, 2000);
-        mostrarLogin();
+        }, 2500);
     }
 
     private void mostrarLogin() {
