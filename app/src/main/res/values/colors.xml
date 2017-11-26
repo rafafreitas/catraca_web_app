@@ -11,6 +11,10 @@
     <color name="colorNPrimary">#347979</color>
     <color name="colorNPrimaryDark">#262e2e</color>
 
+    <!-- CardViewer -->
+    <color name="colorCardViewer">#afafaf</color>
+
+
     <!-- Padrões -->
     <!--color name="color_back">#5b7a80</color-->
     <color name="color_back">#5b7a80</color>
