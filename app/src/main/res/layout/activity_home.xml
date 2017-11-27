@@ -1,82 +1,295 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorWhite"
-    tools:context="com.example.rafael.catraca_web_app.HomeActivity"
-    tools:layout_editor_absoluteY="25dp">
+    android:background="@color/colorBackgroud"
+    android:fillViewport="true"
+    tools:context="com.example.rafael.catraca_web_app.MainActivity"
+    >
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/my_toolbar"
-        android:layout_width="384dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorNPrimary"
-        android:elevation="4dp" />
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-
+        android:paddingBottom="10dp"
+        android:orientation="vertical"
         >
 
-        <android.support.v7.widget.CardView
-            xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/card_view_01"
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/my_toolbar"
+            android:layout_width="384dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorNPrimary"
+            android:elevation="4dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_width="165dp"
-            android:layout_height="110dp"
-            android:layout_marginRight="10dp"
-            card_view:cardElevation="8dp"
-            card_view:cardCornerRadius="4dp"
+            android:layout_marginTop="30dp"
+
             >
 
-            <ImageView
-                android:src="@drawable/border_card_user"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="fitXY"/>
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/card_view_01"
+                android:layout_gravity="center"
+                android:layout_width="165dp"
+                android:layout_height="110dp"
+                android:layout_marginRight="10dp"
+                card_view:cardElevation="8dp"
+                card_view:cardCornerRadius="4dp"
+                >
 
-            <ImageView
-                android:src="@drawable/icon_truck_plus"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:scaleType="fitXY"/>
+                <ImageView
+                    android:src="@drawable/border_card_user"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"/>
+
+                <ImageView
+                    android:src="@drawable/icon_user_plus"
+                    android:layout_width="64dp"
+                    android:layout_height="54dp"
+                    android:padding="8dp"
+                    android:layout_margin="5dp"
+                    android:scaleType="fitXY"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/btn_visitors"
+                    android:textColor="@color/colorBlack"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="10dp"
+                    android:textSize="14dp"
+                    />
 
 
+            </android.support.v7.widget.CardView>
 
-        </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/card_view_02"
+                android:layout_toRightOf="@+id/card_view_01"
+                android:layout_gravity="center"
+                android:layout_width="165dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="10dp"
+                card_view:cardElevation="8dp"
+                card_view:cardCornerRadius="4dp"
+                >
 
-        <android.support.v7.widget.CardView
-            xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/card_view_02"
-            android:layout_toRightOf="@+id/card_view_01"
+                <ImageView
+                    android:src="@drawable/border_card_car"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"/>
+
+                <ImageView
+                    android:src="@drawable/icon_truck_plus"
+                    android:layout_width="66dp"
+                    android:layout_height="56dp"
+                    android:padding="8dp"
+                    android:layout_margin="5dp"
+                    android:scaleType="fitXY"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/btn_car"
+                    android:textColor="@color/colorBlack"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="10dp"
+                    android:textSize="14dp"
+                    />
+
+
+            </android.support.v7.widget.CardView>
+
+
+        </RelativeLayout>
+
+
+        <!-- SecondLine -->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_width="165dp"
-            android:layout_height="110dp"
-            android:layout_marginLeft="10dp"
-            card_view:cardElevation="8dp"
-            card_view:cardCornerRadius="4dp"
+            android:layout_marginTop="10dp"
+
             >
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/card_view_03"
+                android:layout_gravity="center"
+                android:layout_width="165dp"
+                android:layout_height="110dp"
+                android:layout_marginRight="10dp"
+                card_view:cardElevation="8dp"
+                card_view:cardCornerRadius="4dp"
+                >
 
-            <ImageView
-                android:src="@drawable/border_card_car"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="fitXY"/>
+                <ImageView
+                    android:src="@drawable/border_card_visitas_plus"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"/>
+
+                <ImageView
+                    android:src="@drawable/icon_visitas_plus"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:padding="8dp"
+                    android:layout_margin="5dp"
+                    android:scaleType="fitXY"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/btn_new_visits"
+                    android:textColor="@color/colorBlack"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="10dp"
+                    android:textSize="14dp"
+                    />
 
 
-        </android.support.v7.widget.CardView>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/card_view_04"
+                android:layout_toRightOf="@+id/card_view_03"
+                android:layout_gravity="center"
+                android:layout_width="165dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="10dp"
+                card_view:cardElevation="8dp"
+                card_view:cardCornerRadius="4dp"
+                >
+
+                <ImageView
+                    android:src="@drawable/border_card_visitas"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"/>
+
+                <ImageView
+                    android:src="@drawable/icon_visitas_list"
+                    android:layout_width="65dp"
+                    android:layout_height="55dp"
+                    android:padding="8dp"
+                    android:layout_margin="5dp"
+                    android:scaleType="fitXY"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/btn_visits_actives"
+                    android:textColor="@color/colorBlack"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="10dp"
+                    android:textSize="14dp"
+                    />
 
 
-    </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+        </RelativeLayout>
 
 
+        <!-- ThirdLine -->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+
+            >
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/card_view_05"
+                android:layout_gravity="center"
+                android:layout_width="165dp"
+                android:layout_height="110dp"
+                android:layout_marginRight="10dp"
+                card_view:cardElevation="8dp"
+                card_view:cardCornerRadius="4dp"
+                >
+
+                <ImageView
+                    android:src="@drawable/border_card_config"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"/>
+
+                <ImageView
+                    android:src="@drawable/icon_user_config"
+                    android:layout_width="54dp"
+                    android:layout_height="62dp"
+                    android:padding="8dp"
+                    android:layout_margin="5dp"
+                    android:scaleType="fitXY"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/btn_user_config"
+                    android:textColor="@color/colorBlack"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="10dp"
+                    android:textSize="14dp"
+                    />
 
 
-</LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/card_view_06"
+                android:layout_toRightOf="@+id/card_view_05"
+                android:layout_gravity="center"
+                android:layout_width="165dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="10dp"
+                card_view:cardElevation="8dp"
+                card_view:cardCornerRadius="4dp"
+                >
+
+                <ImageView
+                    android:src="@drawable/border_card_exit"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"/>
+
+                <ImageView
+                    android:src="@drawable/icon_exit"
+                    android:layout_width="62dp"
+                    android:layout_height="62dp"
+                    android:padding="8dp"
+                    android:layout_margin="5dp"
+                    android:scaleType="fitXY"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/btn_logout"
+                    android:textColor="@color/colorBlack"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="10dp"
+                    android:textSize="14dp"
+                    />
+
+
+            </android.support.v7.widget.CardView>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</ScrollView>

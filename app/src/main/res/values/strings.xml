@@ -26,7 +26,13 @@
     <!-- Botões Menu-->
     <string name="btn_account">Minha Conta</string>
     <string name="btn_about">Sobre</string>
-    <string name="btn_exit">Sair</string>
+    <string name="btn_logout">Sair</string>
+    <!-- Botões DashBoard-->
+    <string name="btn_visitors">Cadastrar Visitante</string>
+    <string name="btn_car">Cadastrar Veículo</string>
+    <string name="btn_new_visits">Gerar Visita</string>
+    <string name="btn_visits_actives">Visitas Ativas</string>
+    <string name="btn_user_config">Configurações do Usuário</string>
 
 
     <!-- Avisos -->
