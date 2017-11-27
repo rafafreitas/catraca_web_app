@@ -16,6 +16,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import basic.Auth;
+import util.Internet;
+
 /**
  * Created by rafael on 24/11/17.
  */
@@ -93,6 +96,9 @@ public class LoginActivity extends AppCompatActivity{
         inputLayoutEmail.setErrorEnabled(false);
         inputLayoutPassword.setErrorEnabled(false);
         Toast.makeText(getApplicationContext(), "Campos Válidos !!", Toast.LENGTH_SHORT).show();
+
+//        private Internet internet;
+//        private Auth auth; //SingleUser
 
         Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
         startActivity(intent);
