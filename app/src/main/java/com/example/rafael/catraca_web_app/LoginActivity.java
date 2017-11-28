@@ -1,9 +1,11 @@
 package com.example.rafael.catraca_web_app;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Vibrator;
 import android.support.design.widget.TextInputLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -30,6 +32,9 @@ public class LoginActivity extends AppCompatActivity{
     private EditText inputEmail, inputPassword;
     private TextInputLayout inputLayoutEmail, inputLayoutPassword;
     private Button btnLogin;
+    private Internet internet;
+    private Auth auth; //SingleUser
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +56,28 @@ public class LoginActivity extends AppCompatActivity{
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                submitForm();
+                if (submitForm()){
+                    Toast.makeText(getApplicationContext(), "Campos Válidos !!", Toast.LENGTH_SHORT).show();
+                    if (!internet.verificarConexao()) {
+                        new AlertDialog.Builder(LoginActivity.this)
+                                .setCancelable(false)
+                                .setTitle(R.string.app_name)
+                                .setMessage("Por favor, verifique sua conexao com a internet.")
+
+                                // Positive button
+                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+
+                                    }
+                                }).show();
+                    }else {
+                        
+                    }
+
+
+                    //Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
+                    //startActivity(intent);
+                }
             }
         });
 
@@ -78,30 +104,25 @@ public class LoginActivity extends AppCompatActivity{
 
     }//onCreate
 
-    private void submitForm() {
+    private boolean submitForm() {
 
         if (!checkEmail()) {
             inputEmail.setAnimation(animShake);
             inputEmail.startAnimation(animShake);
             vib.vibrate(120);
-            return;
+            return false;
         }
         if (!checkPassword()) {
             inputPassword.setAnimation(animShake);
             inputPassword.startAnimation(animShake);
             vib.vibrate(120);
-            return;
+            return false;
         }
 
         inputLayoutEmail.setErrorEnabled(false);
         inputLayoutPassword.setErrorEnabled(false);
-        Toast.makeText(getApplicationContext(), "Campos Válidos !!", Toast.LENGTH_SHORT).show();
 
-//        private Internet internet;
-//        private Auth auth; //SingleUser
-
-        Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
-        startActivity(intent);
+        return true;
     }
 
     private boolean checkEmail() {
