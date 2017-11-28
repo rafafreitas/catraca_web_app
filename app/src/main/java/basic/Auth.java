@@ -14,6 +14,7 @@ public class Auth {
     private String mensagem;
     private String token;
     private String statusAPI;
+    private String message;
     private String mensagemErroApi;
     private String login;
     private String senha;
@@ -63,6 +64,14 @@ public class Auth {
 
     public void setStatusAPI(String statusAPI) {
         this.statusAPI = statusAPI;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public String getMensagemErroApi() {

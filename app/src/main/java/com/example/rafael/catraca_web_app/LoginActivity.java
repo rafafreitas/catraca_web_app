@@ -18,8 +18,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONException;
+
+import java.util.concurrent.ExecutionException;
+
 import basic.Auth;
+import request.UserRequester;
+import util.Encrypy;
 import util.Internet;
+import util.Util;
 
 /**
  * Created by rafael on 24/11/17.
@@ -41,6 +48,7 @@ public class LoginActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        Util.setCtxAtual(this);
 
         inputLayoutEmail = (TextInputLayout) findViewById(R.id.input_layout_login);
         inputLayoutPassword = (TextInputLayout) findViewById(R.id.input_layout_password);
@@ -53,11 +61,12 @@ public class LoginActivity extends AppCompatActivity{
         animShake = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.shake);
         vib = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
+        internet = new Internet(this);
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (submitForm()){
-                    Toast.makeText(getApplicationContext(), "Campos Válidos !!", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(), "Campos Válidos !!", Toast.LENGTH_SHORT).show();
                     if (!internet.verificarConexao()) {
                         new AlertDialog.Builder(LoginActivity.this)
                                 .setCancelable(false)
@@ -71,7 +80,41 @@ public class LoginActivity extends AppCompatActivity{
                                     }
                                 }).show();
                     }else {
-                        
+                        final String email = inputEmail.getText().toString().trim();
+                        final String senha = inputPassword.getText().toString().trim();
+//                        final String senha = Encrypy.encryptPassword(inputPassword.getText().toString().trim());
+
+                        Util.AtivaDialogHandler(2, "", "Efetuando Login...");
+                        new Thread(new Runnable() {
+
+                            @Override
+                            public void run() {
+                                UserRequester userRequester = new UserRequester();
+                                try {
+                                    //userRequester.loadAuth("rafa", "123", "");
+                                    userRequester.setContext(LoginActivity.this);
+                                    userRequester.loadAuth(email, senha, "");
+
+                                    auth = Auth.getInstance();
+
+                                    if (auth.getMensagemErroApi().equals("ERROR")) {
+                                        Util.AtivaDialogHandler(5, "", "");
+                                        Util.AtivaDialogHandler(1, "CatracaWeb", auth.getMessage());
+                                    } else {
+                                        Intent it = new Intent(getBaseContext(), HomeActivity.class);
+                                        startActivity(it);
+                                        finish();
+                                    }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                } catch (ExecutionException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }).start();
+
                     }
 
 

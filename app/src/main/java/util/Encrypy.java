@@ -12,7 +12,7 @@ import java.util.Formatter;
 
 public class Encrypy {
 
-    private static String encryptPassword(String password)
+    public static String encryptPassword(String password)
     {
         String sha1 = "";
         try
