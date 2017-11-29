@@ -36,9 +36,9 @@ public class UserRequester {
         final JSONObject jsonPut = new JSONObject();
         auth =  Auth.getInstance();
 
-        String teste = "rafael.vasconcelos@outlook.com";
+        //String teste = "teste@outlook.com";
 
-        jsonPut.put("email", teste);
+        jsonPut.put("email", email);
         jsonPut.put("senha", senha);
 
         BaseRequester baseRequester = new BaseRequester();
@@ -54,10 +54,10 @@ public class UserRequester {
 
         auth.setStatusAPI(jsonObjectAuth.get("status").toString());
         auth.setMensagemErroApi(jsonObjectAuth.get("message").toString());
-        auth.setMessage(jsonObjectAuth.get("result").toString());
 
         if (jsonObjectAuth.get("message").toString().equals("ERROR")) {
             //informar ao usuario
+            auth.setMessage(jsonObjectAuth.get("result").toString());
             String mensagemErro = jsonObjectAuth.get("result").toString();
             Log.d("API", mensagemErro);
         }else {
