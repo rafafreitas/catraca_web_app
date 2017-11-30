@@ -29,7 +29,6 @@
     <string name="btn_about">Sobre</string>
     <string name="btn_logout">Sair</string>
     <!-- Botões DashBoard-->
-    <string name="btn_visitors">Cadastrar Visitante</string>
     <string name="btn_car">Cadastrar Veículo</string>
     <string name="btn_new_visits">Gerar Visita</string>
     <string name="btn_visits_actives">Visitas Ativas</string>
@@ -62,6 +61,10 @@
     <string name="tab_visitors">Visitantes</string>
     <string name="tab_cars">Veículos</string>
     <string name="tab_home">Home</string>
+
+    <!-- Card View -->
+    <string name="card_linechart_top">Bem Vindo!</string>
+    <string name="card_linechart_bottom">* Mais detalhes nas visitas ativas</string>
 
 
 
