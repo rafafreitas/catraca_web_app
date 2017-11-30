@@ -25,18 +25,21 @@
             android:id="@+id/my_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorNPrimary"
+            android:background="@drawable/main_background_selector"
             android:elevation="4dp"
-            app:layout_scrollFlags="scroll|enterAlways" />/>
+            app:layout_scrollFlags="scroll|enterAlways"
+             />
 
          <android.support.design.widget.TabLayout
-            android:id="@+id/tabs"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorNPrimary"
-            android:elevation="4dp"
-            app:tabMode="fixed"
-            app:tabGravity="fill"/>
+             style="@style/MyTabLayout"
+             android:id="@+id/tabs"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:background="@drawable/main_background_selector"
+             android:elevation="4dp"
+             app:tabMode="fixed"
+             app:tabGravity="fill"
+             />
      </android.support.design.widget.AppBarLayout>
 
 
