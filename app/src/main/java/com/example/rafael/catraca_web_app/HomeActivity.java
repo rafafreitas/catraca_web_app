@@ -58,6 +58,8 @@ public class HomeActivity extends AppCompatActivity {
         adapter.addFragment(new FragmentHome(), getResources().getString(R.string.tab_home));
         adapter.addFragment(new FragmentCars(), getResources().getString(R.string.tab_cars));
         viewPager.setAdapter(adapter);
+        viewPager.setCurrentItem(1);
+
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
     }

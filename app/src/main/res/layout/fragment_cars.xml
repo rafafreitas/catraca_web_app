@@ -1,18 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorBackgroud"
+    android:fillViewport="true"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.rafael.catraca_web_app.MainActivity"
     >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/fragmentText"
-        android:textSize="40dp"
-        android:textStyle="bold"
-        android:layout_centerInParent="true"
-        android:text="cars"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
 
-</RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/fragmentText"
+            android:textColor="@color/colorBlack"
+            android:layout_gravity="center_horizontal"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:text="Aqui vai ter um formulário para consultar a placa do veículo e para cadastrá-lo caso ele não esteja cadastrado(Vai pegar o retorno do form que vai consultar a placa.)."
+            android:padding="10dp"
+            android:layout_marginTop="100dp"
+            />
+    </LinearLayout>
+
+
+</android.support.v4.widget.NestedScrollView>
