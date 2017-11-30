@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+xmlns:card_view="http://schemas.android.com/apk/res-auto"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@color/colorBackgroud"
+android:fillViewport="true"
+tools:context="com.example.rafael.catraca_web_app.MainActivity"
+    >
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="10dp"
+    android:orientation="vertical"
+    >
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/cv_new_visitante"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        card_view:cardElevation="8dp"
+        card_view:cardCornerRadius="4dp"
+        >
+
+        <ImageView
+            android:src="@drawable/border_card_user"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"/>
+
+        <ImageView
+            android:src="@drawable/icon_user_plus"
+            android:layout_width="64dp"
+            android:layout_height="54dp"
+            android:layout_gravity="center_vertical"
+            android:padding="8dp"
+            android:layout_margin="5dp"
+            android:scaleType="fitXY"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_visitors"
+            android:textColor="@color/colorBlack"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:textSize="18dp"
+            android:fontFamily="@font/allerregular"
+
+            />
+
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view_02"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        card_view:cardElevation="8dp"
+        card_view:cardCornerRadius="4dp"
+        >
+
+        <ImageView
+            android:src="@drawable/border_card_car"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"/>
+
+        <ImageView
+            android:src="@drawable/icon_truck_plus"
+            android:layout_width="66dp"
+            android:layout_height="56dp"
+            android:layout_gravity="center_vertical"
+
+            android:padding="8dp"
+            android:layout_margin="5dp"
+            android:scaleType="fitXY"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_car"
+            android:textColor="@color/colorBlack"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:textSize="18dp"
+            android:fontFamily="@font/allerregular"
+
+            />
+
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view_03"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        card_view:cardElevation="8dp"
+        card_view:cardCornerRadius="4dp"
+        >
+
+        <ImageView
+            android:src="@drawable/border_card_visitas_plus"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"/>
+
+        <ImageView
+            android:src="@drawable/icon_visitas_plus"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_gravity="center_vertical"
+
+            android:padding="8dp"
+            android:layout_margin="5dp"
+            android:scaleType="fitXY"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_new_visits"
+            android:textColor="@color/colorBlack"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:textSize="18dp"
+            android:fontFamily="@font/allerregular"
+
+            />
+
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view_04"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        card_view:cardElevation="8dp"
+        card_view:cardCornerRadius="4dp"
+        >
+
+        <ImageView
+            android:src="@drawable/border_card_visitas"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"/>
+
+        <ImageView
+            android:src="@drawable/icon_visitas_list"
+            android:layout_width="65dp"
+            android:layout_height="55dp"
+            android:layout_gravity="center_vertical"
+
+            android:padding="8dp"
+            android:layout_margin="5dp"
+            android:scaleType="fitXY"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_visits_actives"
+            android:textColor="@color/colorBlack"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:textSize="18dp"
+            android:fontFamily="@font/allerregular"
+
+            />
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view_05"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        card_view:cardElevation="8dp"
+        card_view:cardCornerRadius="4dp"
+        >
+
+        <ImageView
+            android:src="@drawable/border_card_config"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"/>
+
+        <ImageView
+            android:src="@drawable/icon_user_config"
+            android:layout_width="54dp"
+            android:layout_height="62dp"
+            android:layout_gravity="center_vertical"
+
+            android:padding="8dp"
+            android:layout_margin="5dp"
+            android:scaleType="fitXY"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_user_config"
+            android:textColor="@color/colorBlack"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:textSize="18dp"
+            android:fontFamily="@font/allerregular"
+
+            />
+
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view_06"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        card_view:cardElevation="8dp"
+        card_view:cardCornerRadius="4dp"
+        >
+
+        <ImageView
+            android:src="@drawable/border_card_exit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"/>
+
+        <ImageView
+            android:src="@drawable/icon_exit"
+            android:layout_width="62dp"
+            android:layout_height="62dp"
+            android:layout_gravity="center_vertical"
+            android:padding="8dp"
+            android:layout_margin="5dp"
+            android:scaleType="fitXY"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_logout"
+            android:textColor="@color/colorBlack"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:textSize="18dp"
+            android:fontFamily="@font/allerregular"
+
+            />
+
+
+    </android.support.v7.widget.CardView>
+
+
+</LinearLayout>
+
+</ScrollView>

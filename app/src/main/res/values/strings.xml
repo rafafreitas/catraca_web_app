@@ -34,7 +34,6 @@
     <string name="btn_visits_actives">Visitas Ativas</string>
     <string name="btn_user_config">Configurações do Usuário</string>
 
-
     <!-- Avisos -->
     <string name="info_new_user_01">Novo por aqui?\n Obrigado!</string>
     <string name="info_new_user_02">Obrigado!</string>
@@ -57,6 +56,12 @@
     <string name="err_msg_date">Informe uma data válida!</string>
     <string name="err_msg_cpf">Informe uma CPF válido!</string>
     <string name="err_msg_cnpj">Informe uma CNPJ válido!</string>
+
+    <!-- TABS -->
+    <string name="tab_visitors">Visitantes</string>
+    <string name="tab_cars">Veículos</string>
+    <string name="tab_home">Home</string>
+
 
 
     <string-array name="types_user">
