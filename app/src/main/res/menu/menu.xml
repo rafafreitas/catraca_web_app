@@ -8,6 +8,11 @@
         android:icon="@drawable/ic_assignment_ind_white"
         android:title="@string/btn_account"
         app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/action_myMaps"
+        android:icon="@drawable/ic_satellite_white"
+        android:title="@string/btn_maps"
+        app:showAsAction="ifRoom"/>
 
     <!-- Settings, should always be in the overflow -->
 

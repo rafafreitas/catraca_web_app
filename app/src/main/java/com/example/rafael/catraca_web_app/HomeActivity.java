@@ -26,6 +26,11 @@ public class HomeActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private TabLayout tabLayout;
     private ViewPager viewPager;
+    private int[] tabIcons = {
+            R.drawable.ic_transfer_within_a_station_white,
+            R.drawable.ic_home_white,
+            R.drawable.ic_local_shipping_white
+    };
     private Auth auth; //SingleUser
 
 
@@ -62,6 +67,10 @@ public class HomeActivity extends AppCompatActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
+
+        tabLayout.getTabAt(0).setIcon(tabIcons[0]);
+        tabLayout.getTabAt(1).setIcon(tabIcons[1]);
+        tabLayout.getTabAt(2).setIcon(tabIcons[2]);
     }
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
@@ -89,7 +98,8 @@ public class HomeActivity extends AppCompatActivity {
 
         @Override
         public CharSequence getPageTitle(int position) {
-            return mFragmentTitleList.get(position);
+            //return mFragmentTitleList.get(position);
+            return null;
         }
     }
 

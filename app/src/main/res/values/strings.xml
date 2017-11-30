@@ -25,6 +25,7 @@
     <string name="btn_question_pass">Qual data?</string>
     <!-- Botões Menu-->
     <string name="btn_account">Minha Conta</string>
+    <string name="btn_maps">Maps</string>
     <string name="btn_about">Sobre</string>
     <string name="btn_logout">Sair</string>
     <!-- Botões DashBoard-->
