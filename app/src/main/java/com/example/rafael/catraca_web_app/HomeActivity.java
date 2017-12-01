@@ -123,6 +123,7 @@ public class HomeActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.action_myAccount:
                 Intent intent = new Intent(HomeActivity.this,UserDataActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 startActivity(intent);
                 return true;
             case R.id.action_myMaps:
@@ -132,15 +133,14 @@ public class HomeActivity extends AppCompatActivity {
                 //ChamarActivityFalandoSobreOaplicativo();
                 return true;
             case R.id.action_exit:
-                logout();
-                return true;
+
+                Intent it = new Intent(getApplicationContext(), LoginActivity.class);
+                it.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(it);
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
-    private void logout(){
-        auth = null;
-        finish();
-    }
+
 }
