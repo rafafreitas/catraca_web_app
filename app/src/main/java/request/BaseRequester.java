@@ -140,6 +140,7 @@ public class BaseRequester extends AsyncTask<BaseRequester, Object, String> {
                 bytes = body.getBytes();
                 //conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
                 conn.setRequestProperty("Content-Type", "application/json");
+                conn.setRequestProperty("Authorization", "token" );
 
                 conn.setReadTimeout(10000);
                 conn.setConnectTimeout(15000);

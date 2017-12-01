@@ -7,6 +7,7 @@
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
+
     <uses-permission
         android:name="android.permission.CAMERA"
         android:maxSdkVersion="16" />
@@ -15,7 +16,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
@@ -30,32 +31,25 @@
             android:theme="@style/AppCompat.TelaCheia">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".LoginActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            >
-        </activity>
-
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
         <activity
             android:name=".NewClientActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            >
-        </activity>
-
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
         <activity
             android:name=".ResetPassActivity"
-            android:theme="@style/AppThemeAuth"
-            >
-        </activity>
-
+            android:theme="@style/AppThemeAuth"></activity>
         <activity
             android:name=".HomeActivity"
-            android:theme="@style/AppThemeAuth">
-        </activity>
+            android:theme="@style/AppThemeAuth"></activity>
+        <activity
+            android:name=".UserDataActivity"
+            android:theme="@style/AppThemeAuth"></activity>
     </application>
 
 </manifest>

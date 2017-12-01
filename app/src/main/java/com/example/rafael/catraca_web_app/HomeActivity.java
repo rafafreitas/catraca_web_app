@@ -1,5 +1,6 @@
 package com.example.rafael.catraca_web_app;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -10,6 +11,8 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -23,6 +26,7 @@ import fragments.FragmentVisitors;
 
 public class HomeActivity extends AppCompatActivity {
 
+    private Button btnLogin;
     private Toolbar toolbar;
     private TabLayout tabLayout;
     private ViewPager viewPager;
@@ -46,6 +50,8 @@ public class HomeActivity extends AppCompatActivity {
         Usuario usuario = new Usuario();
         usuario = auth.getUsuario();
         Toast.makeText(getApplicationContext(), usuario.getUser_data_nasc(), Toast.LENGTH_SHORT).show();
+
+
 
     }
 
@@ -109,5 +115,32 @@ public class HomeActivity extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.action_myAccount:
+                Intent intent = new Intent(HomeActivity.this,UserDataActivity.class);
+                startActivity(intent);
+                return true;
+            case R.id.action_myMaps:
+                //ChamarActivitydeMaps();
+                return true;
+            case R.id.action_about:
+                //ChamarActivityFalandoSobreOaplicativo();
+                return true;
+            case R.id.action_exit:
+                logout();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void logout(){
+        auth = null;
+        finish();
     }
 }

@@ -67,7 +67,6 @@
     <string name="card_linechart_bottom">* Mais detalhes nas visitas ativas</string>
 
 
-
     <string-array name="types_user">
         <item id="1">CPF</item>
         <item id="2">CNPJ</item>
