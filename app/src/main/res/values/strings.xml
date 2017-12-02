@@ -11,6 +11,7 @@
     <string name="hint_email">E-Mail</string>
     <string name="hint_pass">Senha</string>
     <string name="hint_cpf_cnpj">Informe-o aqui</string>
+    <string name="hint_cpf">CPF</string>
     <string name="hint_date_fis">Data de Nascimento</string>
     <string name="hint_date_jur">Fundação da Empresa</string>
     <string name="hint_date_reset">Data Cadastrada*</string>
@@ -18,6 +19,7 @@
     <string name="btn_access">Acessar</string>
     <string name="btn_cad">Cadastrar</string>
     <string name="btn_reset_pass">Receber nova senha</string>
+    <string name="btn_update_data">Atualizar dados</string>
     <string name="btn_client">Já é cliente?</string>
     <string name="btn_login">Fazer Login</string>
     <string name="btn_forgot">Esqueceu a senha?</string>

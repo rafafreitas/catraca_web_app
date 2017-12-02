@@ -73,7 +73,8 @@ public class UserRequester {
             usuario.setUser_id(Integer.parseInt(jsonObjectUsuario.get("user_id").toString()));
             usuario.setUser_email(jsonObjectUsuario.get("user_email").toString());
             usuario.setUser_nome(jsonObjectUsuario.get("user_nome").toString());
-            usuario.setUser_data_nasc(jsonObjectUsuario.get("user_data_nasc").toString());
+            usuario.setUser_data_nasc(jsonObjectUsuario.get("dateFormat").toString());
+            usuario.setUser_cpf(jsonObjectUsuario.get("user_cpf").toString());
             usuario.setTipo_id(Integer.parseInt(jsonObjectUsuario.get("tipo_id").toString()));
             usuario.setFilial_id(Integer.parseInt(jsonObjectUsuario.get("filial_id").toString()));
             auth.setUsuario(usuario);

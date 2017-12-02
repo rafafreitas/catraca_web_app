@@ -18,7 +18,10 @@
         <item name="colorPrimary">@color/colorNPrimary</item>
         <item name="colorPrimaryDark">@color/colorNPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:textColorHint">@color/colorWhite</item>
+        <item name="android:textColorHint">@color/colorAccent</item>
+
+        <item name="colorControlNormal">@color/colorBlack</item>
+
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
 

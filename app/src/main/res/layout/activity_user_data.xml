@@ -10,9 +10,6 @@
     tools:context="com.example.rafael.catraca_web_app.MainActivity"
     >
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -45,10 +42,116 @@
             android:fontFamily="@font/allerregular"
             />
 
-        <EditText
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_nome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/nome_user"/>
+            android:layout_marginTop="20dp"
+            android:paddingRight="15dp"
+            android:paddingLeft="15dp"
+            >
+
+            <EditText
+                android:id="@+id/input_nome"
+                android:inputType="text"
+                android:imeOptions="actionNext"
+                android:maxLines="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_nome"
+                android:drawableStart="@drawable/ic_person_outline_black"
+                android:drawablePadding="5dp"
+                android:fontFamily="@font/allerregular"
+
+
+                />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:paddingRight="15dp"
+            android:paddingLeft="15dp"
+            >
+
+            <EditText
+                android:id="@+id/input_email"
+                android:inputType="textEmailAddress"
+                android:imeOptions="actionNext"
+                android:maxLines="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_email_cad"
+                android:drawableStart="@drawable/ic_mail_outline_black"
+                android:drawablePadding="5dp"
+                android:fontFamily="@font/allerregular"
+
+                />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_cpf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:paddingRight="15dp"
+            android:paddingLeft="15dp"
+            >
+            <EditText
+                android:id="@+id/input_cpf"
+                android:inputType="number"
+                android:imeOptions="actionNext"
+                android:maxLines="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_cpf"
+                android:drawableStart="@drawable/ic_address_card"
+                android:drawablePadding="7dp"
+                android:fontFamily="@font/allerregular"
+                />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:paddingRight="15dp"
+            android:paddingLeft="15dp"
+            >
+
+            <EditText
+                android:id="@+id/input_date"
+                android:imeOptions="actionDone"
+                android:inputType="date"
+                android:maxLines="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/colorAccent"
+                android:textColor="@color/colorBlack"
+                android:drawableStart="@drawable/ic_date_range_black"
+                android:drawablePadding="5dp"
+                android:hint="@string/hint_date_fis"
+                android:fontFamily="@font/allerregular"
+                />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_update"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/btn_update_data"
+            android:background="@color/color_btn"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/allerregular"
+
+            />
 
     </LinearLayout>
 
