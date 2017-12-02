@@ -232,7 +232,7 @@ public class NewClientActivity extends AppCompatActivity {
             if (inputCpfCnpj.getText().toString().trim().isEmpty()) {
 
                 inputLayoutCpfCnjp.setErrorEnabled(true);
-                inputLayoutCpfCnjp.setError(getString(R.string.err_msg_cpf));
+                inputLayoutCpfCnjp.setError(getString(R.string.err_msg_required));
                 inputCpfCnpj.setError(getString(R.string.err_msg_required));
                 requestFocus(inputCpfCnpj);
                 return false;
@@ -243,6 +243,10 @@ public class NewClientActivity extends AppCompatActivity {
 
                 boolean retorno = CNP.isValidCPF(Str);
                 if (!retorno) {
+                    inputLayoutCpfCnjp.setErrorEnabled(true);
+                    inputLayoutCpfCnjp.setError(getString(R.string.err_msg_cpf));
+                    inputCpfCnpj.setError(getString(R.string.err_msg_cpf));
+                    requestFocus(inputCpfCnpj);
                     return false;
                 }
                 // return CNP.isValidCPF(Str);
@@ -264,7 +268,7 @@ public class NewClientActivity extends AppCompatActivity {
                 Str = Str.replace("/", "");
                 Str = Str.replace("-", "");
 
-                boolean retorno = CNP.isValidCPF(Str);
+                boolean retorno = CNP.isValidCNPJ(Str);
                 if (!retorno) {
                     return false;
                 }

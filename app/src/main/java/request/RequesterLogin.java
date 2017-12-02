@@ -9,17 +9,16 @@ import org.json.JSONObject;
 import java.util.concurrent.ExecutionException;
 
 import basic.Auth;
-import basic.Usuario;
 
 /**
  * Created by rafael on 28/11/17.
  */
 
-public class UserRequester {
+public class RequesterLogin {
     private Auth auth;
     private Context context;
 
-    public UserRequester() {
+    public RequesterLogin() {
 
     }
 
@@ -38,8 +37,8 @@ public class UserRequester {
 
         //String teste = "teste@outlook.com";
 
-        jsonPut.put("email", email);
-        jsonPut.put("senha", senha);
+        jsonPut.put("user_email", email);
+        jsonPut.put("user_senha", senha);
 
         BaseRequester baseRequester = new BaseRequester();
         baseRequester.setUrl(Requester.API_URL + "/usuario/login");

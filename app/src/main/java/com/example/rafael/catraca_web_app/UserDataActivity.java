@@ -170,7 +170,7 @@ public class UserDataActivity extends AppCompatActivity {
         }
         inputLayoutName.setErrorEnabled(false);
         inputLayoutEmail.setErrorEnabled(false);
-        inputLayoutPassword.setErrorEnabled(false);
+        //inputLayoutPassword.setErrorEnabled(false);
         inputLayoutDate.setErrorEnabled(false);
         Toast.makeText(getApplicationContext(), "Campos Válidos !!", Toast.LENGTH_SHORT).show();
     }//submitForm
@@ -206,8 +206,8 @@ public class UserDataActivity extends AppCompatActivity {
         if (inputCpf.getText().toString().trim().isEmpty()) {
 
             inputLayoutCpf.setErrorEnabled(true);
-            inputLayoutCpf.setError(getString(R.string.err_msg_cpf));
-            inputCpf.setError(getString(R.string.err_msg_required));
+            inputLayoutCpf.setError(getString(R.string.err_msg_required));
+            //inputCpf.setError(getString(R.string.err_msg_required));
             requestFocus(inputCpf);
             return false;
         }else{
@@ -217,6 +217,10 @@ public class UserDataActivity extends AppCompatActivity {
 
             boolean retorno = CNP.isValidCPF(Str);
             if (!retorno) {
+                inputLayoutCpf.setErrorEnabled(true);
+                inputLayoutCpf.setError(getString(R.string.err_msg_cpf));
+                //inputCpf.setError(getString(R.string.err_msg_required));
+                requestFocus(inputCpf);
                 return false;
             }
             // return CNP.isValidCPF(Str);

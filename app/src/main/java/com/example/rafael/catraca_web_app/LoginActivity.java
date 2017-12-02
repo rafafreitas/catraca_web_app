@@ -23,7 +23,7 @@ import org.json.JSONException;
 import java.util.concurrent.ExecutionException;
 
 import basic.Auth;
-import request.UserRequester;
+import request.RequesterLogin;
 import util.Encrypy;
 import util.Internet;
 import util.Util;
@@ -89,11 +89,11 @@ public class LoginActivity extends AppCompatActivity{
 
                             @Override
                             public void run() {
-                                UserRequester userRequester = new UserRequester();
+                                RequesterLogin requesterLogin = new RequesterLogin();
                                 try {
-                                    //userRequester.loadAuth("rafa", "123", "");
-                                    userRequester.setContext(LoginActivity.this);
-                                    userRequester.loadAuth(email, senha, "");
+                                    //requesterLogin.loadAuth("rafa", "123", "");
+                                    requesterLogin.setContext(LoginActivity.this);
+                                    requesterLogin.loadAuth(email, senha, "");
 
                                     auth = Auth.getInstance();
 
