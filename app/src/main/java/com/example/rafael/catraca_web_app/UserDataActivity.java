@@ -1,6 +1,7 @@
 package com.example.rafael.catraca_web_app;
 
 import android.content.Intent;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -40,6 +41,7 @@ public class UserDataActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
+        menu.getItem(0).setIcon(ContextCompat.getDrawable(this, R.drawable.ic_home_white_24dp));
         return true;
     }
 
@@ -48,6 +50,9 @@ public class UserDataActivity extends AppCompatActivity {
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.action_myAccount:
+                Intent intent = new Intent(UserDataActivity.this,HomeActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                startActivity(intent);
                 return true;
             case R.id.action_myMaps:
                 //ChamarActivitydeMaps();
