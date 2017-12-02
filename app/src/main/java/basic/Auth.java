@@ -16,8 +16,6 @@ public class Auth {
     private String statusAPI;
     private String message;
     private String mensagemErroApi;
-    private String login;
-    private String senha;
     private Usuario usuario;
     private ArrayList<Responsaveis> responsaveis;
     private ArrayList<VisitaMotivo> visitaMotivos;
@@ -80,22 +78,6 @@ public class Auth {
 
     public void setMensagemErroApi(String mensagemErroApi) {
         this.mensagemErroApi = mensagemErroApi;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
     }
 
     public Usuario getUsuario() {

@@ -61,24 +61,8 @@ public class UserRequester {
             String mensagemErro = jsonObjectAuth.get("result").toString();
             Log.d("API", mensagemErro);
         }else {
-
-            auth.setToken(jsonObjectAuth.get("token").toString());
-            auth.setLogin(email);
-            auth.setSenha(senha);
-
-            JSONObject jsonObjectUsuario = jsonObjectAuth.getJSONObject("usuario");
-            //operador
-
-            Usuario usuario = new Usuario();
-            usuario.setUser_id(Integer.parseInt(jsonObjectUsuario.get("user_id").toString()));
-            usuario.setUser_email(jsonObjectUsuario.get("user_email").toString());
-            usuario.setUser_nome(jsonObjectUsuario.get("user_nome").toString());
-            usuario.setUser_data_nasc(jsonObjectUsuario.get("dateFormat").toString());
-            usuario.setUser_cpf(jsonObjectUsuario.get("user_cpf").toString());
-            usuario.setTipo_id(Integer.parseInt(jsonObjectUsuario.get("tipo_id").toString()));
-            usuario.setFilial_id(Integer.parseInt(jsonObjectUsuario.get("filial_id").toString()));
-            auth.setUsuario(usuario);
-
+            AddAuth addAuth = new AddAuth();
+            addAuth.feedAuth(jsonObjectAuth);
         }
 
     }
