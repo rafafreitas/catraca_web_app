@@ -81,8 +81,8 @@ public class LoginActivity extends AppCompatActivity{
                                 }).show();
                     }else {
                         final String email = inputEmail.getText().toString().trim();
-                        final String senha = inputPassword.getText().toString().trim();
-//                        final String senha = Encrypy.encryptPassword(inputPassword.getText().toString().trim());
+                        //final String senha = inputPassword.getText().toString().trim();
+                        final String senha = Encrypy.encryptPassword(inputPassword.getText().toString().trim());
 
                         Util.AtivaDialogHandler(2, "", "Efetuando Login...");
                         new Thread(new Runnable() {
