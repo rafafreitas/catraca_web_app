@@ -38,7 +38,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/img"
-                android:fontFamily="monospace"
+                android:fontFamily="@font/allerregular"
                 android:text="@string/info_new_user_01"
                 android:textColor="@color/colorWhite"
                 android:textSize="15dp"
@@ -63,13 +63,14 @@
             <TextView
                 android:id="@+id/card_text"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="monospace"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/allerregular"
                 android:text="@string/info_new_user_03"
                 android:textColor="@color/colorWhite"
-                android:textSize="16dp"
+                android:textSize="18dp"
                 android:textAlignment="center"
-                android:layout_marginTop="8dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="12dp"
                 />
         </android.support.v7.widget.CardView>
 
@@ -92,6 +93,8 @@
                 android:hint="@string/hint_nome"
                 android:drawableStart="@drawable/ic_person_outline_black"
                 android:drawablePadding="5dp"
+                android:fontFamily="@font/allerregular"
+
                 />
 
         </android.support.design.widget.TextInputLayout>
@@ -115,6 +118,8 @@
                 android:hint="@string/hint_email_cad"
                 android:drawableStart="@drawable/ic_mail_outline_black"
                 android:drawablePadding="5dp"
+                android:fontFamily="@font/allerregular"
+
                 />
 
         </android.support.design.widget.TextInputLayout>
@@ -138,6 +143,8 @@
                 android:hint="@string/hint_pass"
                 android:drawableStart="@drawable/ic_vpn_key_black"
                 android:drawablePadding="5dp"
+                android:fontFamily="@font/allerregular"
+
                 />
 
         </android.support.design.widget.TextInputLayout>
@@ -178,6 +185,7 @@
                     android:hint="@string/hint_cpf_cnpj"
                     android:drawableStart="@drawable/ic_address_card"
                     android:drawablePadding="7dp"
+                    android:fontFamily="@font/allerregular"
                     />
             </android.support.design.widget.TextInputLayout>
 
@@ -201,11 +209,11 @@
                 android:maxLines="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 android:textColorHint="@color/colorAccent"
                 android:textColor="@color/colorBlack"
                 android:drawableStart="@drawable/ic_date_range_black"
                 android:drawablePadding="5dp"
+                android:fontFamily="@font/allerregular"
                 />
 
         </android.support.design.widget.TextInputLayout>
@@ -218,6 +226,8 @@
             android:text="@string/btn_cad"
             android:background="@color/color_btn"
             android:layout_marginTop="20dp"
+            android:fontFamily="@font/allerregular"
+
             />
 
         <TextView
@@ -230,6 +240,8 @@
             android:textSize="10pt"
             android:text="@string/btn_client"
             android:textColor="@color/colorWhite"
+            android:fontFamily="@font/allerregular"
+
             />
 
         <RelativeLayout
@@ -244,7 +256,7 @@
                 android:textSize="8pt"
                 android:text="@string/info_copyright"
                 android:textColor="@color/colorWhite"
-
+                android:fontFamily="@font/allerregular"
                 />
 
         </RelativeLayout>

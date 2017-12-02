@@ -28,6 +28,8 @@
             android:text="Aqui vai ter um formulário para consultar a placa do veículo e para cadastrá-lo caso ele não esteja cadastrado(Vai pegar o retorno do form que vai consultar a placa.)."
             android:padding="10dp"
             android:layout_marginTop="100dp"
+            android:fontFamily="@font/allerregular"
+
             />
     </LinearLayout>
 

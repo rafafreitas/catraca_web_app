@@ -23,12 +23,13 @@
             android:id="@+id/txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="monospace"
+            android:fontFamily="@font/allerregular"
             android:gravity="center"
             android:text="@string/app_name_ok"
             android:textColor="@color/colorWhite"
-            android:textSize="32dp"
+            android:textSize="34dp"
             android:layout_marginTop="48dp"
+
             />
 
         <ImageView

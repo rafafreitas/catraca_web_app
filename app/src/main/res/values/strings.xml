@@ -1,8 +1,9 @@
 <resources>
-    <!-- Inputs -->
+    <!-- APP -->
     <string name="app_name">CatracaWeb</string>
     <string name="app_name_ok">CatracaWeb</string>
     <string name="app_splash">Controle de Acesso</string>
+    <string name="info_copyright">©-CatracaWeb - 2017</string>
     <!-- Inputs -->
     <string name="hint_nome">Informe seu Nome</string>
     <string name="hint_email_cad">E-Mail para acesso</string>
@@ -13,7 +14,6 @@
     <string name="hint_date_fis">Data de Nascimento</string>
     <string name="hint_date_jur">Fundação da Empresa</string>
     <string name="hint_date_reset">Data Cadastrada*</string>
-
     <!-- Botões -->
     <string name="btn_access">Acessar</string>
     <string name="btn_cad">Cadastrar</string>
@@ -33,21 +33,16 @@
     <string name="btn_new_visits">Gerar Visita</string>
     <string name="btn_visits_actives">Visitas Ativas</string>
     <string name="btn_user_config">Configurações do Usuário</string>
-
     <!-- Avisos -->
     <string name="info_new_user_01">Novo por aqui?\n Obrigado!</string>
     <string name="info_new_user_02">Obrigado!</string>
     <string name="info_new_user_03">Para utilizar nossos serviços é necessário realizar um pequeno cadastro</string>
     <string name="info_new_user_cad">Necessário para recuperação da senha no futuro!</string>
-
     <string name="info_reset_pass_01">Esqueceu a senha?\n Sem problema</string>
     <string name="info_reset_pass_02">Sem problema</string>
     <string name="info_reset_pass_03">* Uma nova senha será enviada para seu E-Mail</string>
     <string name="info_reset_pass_04">Informar:\n Data de Nascimento ou \n Fundação da Empresa.</string>
     <string name="info_reset_pass_05">*Nascimento ou Fundação da Empresa.</string>
-
-    <string name="info_copyright">©-CatracaWeb - 2017</string>
-
     <!-- Validações de Formulário-->
     <string name="err_msg_required">Preencha este campo!</string>
     <string name="err_msg_nome">Informe um Nome</string>
@@ -56,15 +51,16 @@
     <string name="err_msg_date">Informe uma data válida!</string>
     <string name="err_msg_cpf">Informe uma CPF válido!</string>
     <string name="err_msg_cnpj">Informe uma CNPJ válido!</string>
-
     <!-- TABS -->
     <string name="tab_visitors">Visitantes</string>
     <string name="tab_cars">Veículos</string>
     <string name="tab_home">Home</string>
-
     <!-- Card View -->
     <string name="card_linechart_top">Bem Vindo!</string>
     <string name="card_linechart_bottom">* Mais detalhes nas visitas ativas</string>
+    <!-- Telas -->
+    <string name="msq_user_data">Meus Dados</string>
+
 
 
     <string-array name="types_user">
