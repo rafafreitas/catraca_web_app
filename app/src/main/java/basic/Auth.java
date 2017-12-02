@@ -10,12 +10,10 @@ public class Auth {
 
 
     private static Auth instance = new Auth();
-    private String status;
-    private String mensagem;
-    private String token;
     private String statusAPI;
     private String message;
     private String mensagemErroApi;
+    private String token;
     private Usuario usuario;
     private ArrayList<Responsaveis> responsaveis;
     private ArrayList<VisitaMotivo> visitaMotivos;
@@ -30,22 +28,6 @@ public class Auth {
         }
 
         return instance;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getMensagem() {
-        return mensagem;
-    }
-
-    public void setMensagem(String mensagem) {
-        this.mensagem = mensagem;
     }
 
     public String getToken() {

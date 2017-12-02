@@ -97,9 +97,9 @@ public class LoginActivity extends AppCompatActivity{
 
                                     auth = Auth.getInstance();
 
-                                    if (auth.getMensagemErroApi().equals("ERROR")) {
+                                    if (auth.getMessage().equals("ERROR")) {
                                         Util.AtivaDialogHandler(5, "", "");
-                                        Util.AtivaDialogHandler(1, "CatracaWeb", auth.getMessage());
+                                        Util.AtivaDialogHandler(1, "CatracaWeb", auth.getMensagemErroApi());
                                     } else {
                                         Intent it = new Intent(getBaseContext(), HomeActivity.class);
                                         startActivity(it);

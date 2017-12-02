@@ -53,11 +53,11 @@ public class UserRequester {
         JSONObject jsonObjectAuth = new JSONObject(jsonReturn);
 
         auth.setStatusAPI(jsonObjectAuth.get("status").toString());
-        auth.setMensagemErroApi(jsonObjectAuth.get("message").toString());
+        auth.setMessage(jsonObjectAuth.get("message").toString());
 
         if (jsonObjectAuth.get("message").toString().equals("ERROR")) {
             //informar ao usuario
-            auth.setMessage(jsonObjectAuth.get("result").toString());
+            auth.setMensagemErroApi(jsonObjectAuth.get("result").toString());
             String mensagemErro = jsonObjectAuth.get("result").toString();
             Log.d("API", mensagemErro);
         }else {
