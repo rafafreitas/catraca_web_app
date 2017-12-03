@@ -45,6 +45,13 @@
     <string name="info_reset_pass_03">* Uma nova senha será enviada para seu E-Mail</string>
     <string name="info_reset_pass_04">Informar:\n Data de Nascimento ou \n Fundação da Empresa.</string>
     <string name="info_reset_pass_05">*Nascimento ou Fundação da Empresa.</string>
+    <string name="info_internet">Por favor, verifique sua conexao com a internet.</string>
+    <string name="info_success">Informações Atualizadas</string>
+    <!-- Avisos Threads -->
+    <string name="info_login">Efetuando Login...</string>
+    <string name="info_update">Atualizando dados...</string>
+
+
     <!-- Validações de Formulário-->
     <string name="err_msg_required">Preencha este campo!</string>
     <string name="err_msg_nome">Informe um Nome</string>

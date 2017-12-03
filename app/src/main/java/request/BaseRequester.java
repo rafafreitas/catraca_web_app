@@ -28,7 +28,7 @@ public class BaseRequester extends AsyncTask<BaseRequester, Object, String> {
     private Context context;
     private String strReturn;
     private String jsonString;
-    private String authorization;
+    private static String authorization;
 
     public BaseRequester() {
 
@@ -82,7 +82,7 @@ public class BaseRequester extends AsyncTask<BaseRequester, Object, String> {
         this.jsonString = jsonString;
     }
 
-    public String getAuthorization() {
+    public static String getAuthorization() {
         return authorization;
     }
 
@@ -137,10 +137,12 @@ public class BaseRequester extends AsyncTask<BaseRequester, Object, String> {
                     body = gsonString;
                 }
 
+                //String teste = getAuthorization();
+
                 bytes = body.getBytes();
                 //conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
                 conn.setRequestProperty("Content-Type", "application/json");
-                conn.setRequestProperty("Authorization", "token" );
+                conn.setRequestProperty("Authorization", getAuthorization() );
 
                 conn.setReadTimeout(10000);
                 conn.setConnectTimeout(15000);

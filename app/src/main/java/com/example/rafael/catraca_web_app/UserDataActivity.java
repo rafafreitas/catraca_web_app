@@ -1,10 +1,14 @@
 package com.example.rafael.catraca_web_app;
 
+
+
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Vibrator;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -22,10 +26,17 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONException;
+
+import java.util.concurrent.ExecutionException;
+
 import basic.Auth;
 import basic.Usuario;
+import request.RequesterUpdateUser;
 import util.CNP;
+import util.Internet;
 import util.Mask;
+import util.Util;
 
 public class UserDataActivity extends AppCompatActivity {
     private TextWatcher dateMask;
@@ -33,10 +44,12 @@ public class UserDataActivity extends AppCompatActivity {
 
     private Vibrator vib;
     Animation animShake;
+
     private EditText inputName, inputEmail, inputPassword, inputCpf, inputDate;
     private TextInputLayout inputLayoutName, inputLayoutEmail, inputLayoutPassword, inputLayoutCpf, inputLayoutDate;
     private Button btnUpdate;
 
+    private Internet internet;
     private Auth auth; //SingleUser
 
 
@@ -46,6 +59,9 @@ public class UserDataActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_data);
 
         auth = Auth.getInstance();
+        internet = new Internet(this);
+        Util.setCtxAtual(this);
+
         Usuario usuario = new Usuario();
         usuario = auth.getUsuario();
 
@@ -57,7 +73,63 @@ public class UserDataActivity extends AppCompatActivity {
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                submitForm();
+                if (submitForm()){
+                    if (!internet.verificarConexao()) {
+                        new AlertDialog.Builder(UserDataActivity.this)
+                                .setCancelable(false)
+                                .setTitle(R.string.app_name)
+                                .setMessage(R.string.info_internet)
+
+                                // Positive button
+                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+
+                                    }
+                                }).show();
+                    }else{
+
+                        final Usuario userUpdate = new Usuario();
+                        userUpdate.setUser_nome(inputName.getText().toString());
+                        userUpdate.setUser_email(inputEmail.getText().toString());
+                        userUpdate.setUser_cpf(inputCpf.getText().toString());
+                        userUpdate.setUser_data_nasc(inputDate.getText().toString());
+
+                        Util.AtivaDialogHandler(2, "", "Atualizando dados...");
+                        new Thread(new Runnable() {
+
+                            @Override
+                            public void run() {
+                                RequesterUpdateUser requesterUpdateUser = new RequesterUpdateUser();
+
+                                try {
+
+                                    requesterUpdateUser.setContext(UserDataActivity.this);
+                                    requesterUpdateUser.loadAuth(userUpdate);
+
+                                    auth = Auth.getInstance();
+
+                                    if (auth.getMessage().equals("ERROR")) {
+                                        Util.AtivaDialogHandler(5, "", "");
+                                        Util.AtivaDialogHandler(1, "CatracaWeb", auth.getMensagemErroApi());
+                                    }else{
+                                        Util.stopProgressDialog();
+                                        Util.AtivaDialogHandler(1, "CatracaWeb", "Dados Atualizados." );
+                                        //Toast.makeText(getApplicationContext(), "Dados Atualizados.", Toast.LENGTH_SHORT).show();
+                                    }
+
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                } catch (ExecutionException e) {
+                                    e.printStackTrace();
+                                }
+
+                            }
+
+                        }).start();
+                    }
+                }
             }
         });
     }
@@ -142,37 +214,39 @@ public class UserDataActivity extends AppCompatActivity {
         }
     }
 
-    private void submitForm() {
+    private boolean submitForm() {
 
         if (!checkName()) {
             inputName.setAnimation(animShake);
             inputName.startAnimation(animShake);
             vib.vibrate(120);
-            return;
+            return false;
         }
         if (!checkEmail()) {
             inputEmail.setAnimation(animShake);
             inputEmail.startAnimation(animShake);
             vib.vibrate(120);
-            return;
+            return false;
         }
         if (!checkCPF()) {
             inputCpf.setAnimation(animShake);
             inputCpf.startAnimation(animShake);
             vib.vibrate(120);
-            return;
+            return false;
         }
         if (!checkDate()) {
             inputDate.setAnimation(animShake);
             inputDate.startAnimation(animShake);
             vib.vibrate(120);
-            return;
+            return false;
         }
         inputLayoutName.setErrorEnabled(false);
         inputLayoutEmail.setErrorEnabled(false);
         //inputLayoutPassword.setErrorEnabled(false);
         inputLayoutDate.setErrorEnabled(false);
-        Toast.makeText(getApplicationContext(), "Campos Válidos !!", Toast.LENGTH_SHORT).show();
+
+        //Toast.makeText(getApplicationContext(), "Campos Válidos !!", Toast.LENGTH_SHORT).show();
+        return true;
     }//submitForm
 
     private boolean checkName() {

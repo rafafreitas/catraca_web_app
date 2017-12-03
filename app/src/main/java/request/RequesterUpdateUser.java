@@ -36,7 +36,9 @@ public class RequesterUpdateUser {
         final JSONObject jsonPut = new JSONObject();
         auth =  Auth.getInstance();
 
-        jsonPut.put("user_id", usuario.getUser_id());
+
+
+        jsonPut.put("user_id", Integer.toString(auth.getUsuario().getUser_id()));
         jsonPut.put("user_nome", usuario.getUser_nome());
         jsonPut.put("user_email", usuario.getUser_email());
         jsonPut.put("user_cpf", usuario.getUser_cpf());
@@ -44,6 +46,7 @@ public class RequesterUpdateUser {
 
         BaseRequester baseRequester = new BaseRequester();
         baseRequester.setUrl(Requester.API_URL + "/usuario/alterar");
+        baseRequester.setAuthorization(auth.getToken());
         baseRequester.setMethod(Method.POST);
         baseRequester.setJsonString(jsonPut.toString());
         baseRequester.setContext(context);

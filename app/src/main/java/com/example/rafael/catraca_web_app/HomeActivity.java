@@ -49,7 +49,9 @@ public class HomeActivity extends AppCompatActivity {
         auth = Auth.getInstance();
         Usuario usuario = new Usuario();
         usuario = auth.getUsuario();
-        Toast.makeText(getApplicationContext(), usuario.getUser_data_nasc(), Toast.LENGTH_SHORT).show();
+
+        //String teste = Integer.toString(usuario.getUser_id());
+        //Toast.makeText(getApplicationContext(), teste, Toast.LENGTH_SHORT).show();
 
 
 

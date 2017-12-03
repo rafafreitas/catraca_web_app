@@ -13,7 +13,7 @@ public class Auth {
     private String statusAPI;
     private String message;
     private String mensagemErroApi;
-    private String token;
+    private static String token;
     private Usuario usuario;
     private ArrayList<Responsaveis> responsaveis;
     private ArrayList<VisitaMotivo> visitaMotivos;
@@ -30,7 +30,7 @@ public class Auth {
         return instance;
     }
 
-    public String getToken() {
+    public static String getToken() {
         return token;
     }
 
