@@ -16,21 +16,112 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         >
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_pesquisa_placa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingRight="15dp"
+            android:paddingLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="9.6">
+            <EditText
+                android:id="@+id/input_pesquisa_placa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:maxLines="1"
+                android:imeOptions="actionSearch"
+                android:hint="@string/hint_search_plate"
+                android:fontFamily="@font/allerregular"
+                android:drawableEnd="@drawable/ic_search_black_24dp"
+                android:drawablePadding="5dp"
+                android:textAlignment="center"/>
+        </android.support.design.widget.TextInputLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/fragmentText"
+            android:text="@string/msq_car_data"
+            android:textColor="@color/colorBlack"
+            android:layout_marginTop="40dp"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/allerregular"
+            />
+
+         <android.support.design.widget.TextInputLayout
+             android:id="@+id/input_layout_placa"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="20dp"
+             android:paddingRight="15dp"
+             android:paddingLeft="15dp">
+
+             <EditText
+                 android:id="@+id/input_placa"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:drawableStart="@drawable/ic_directions_car_black_24dp"
+                 android:drawablePadding="5dp"
+                 android:imeOptions="actionNext"
+                 android:inputType="text"
+                 android:maxLines="1"
+                 android:fontFamily="@font/allerregular"
+                 android:hint="@string/hint_plate"
+                 android:textColor="@color/colorBlack"
+                 />
+
+         </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_model"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:paddingRight="15dp"
+            android:paddingLeft="15dp">
+
+            <EditText
+                android:id="@+id/input_model"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_mode_edit_black_24dp"
+                android:drawablePadding="5dp"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:maxLines="1"
+                android:fontFamily="@font/allerregular"
+                android:hint="@string/hint_model"
+                android:textColor="@color/colorBlack"
+                />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/hint_alter_car_image"
             android:textColor="@color/colorBlack"
             android:layout_gravity="center_horizontal"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:text="Aqui vai ter um formulário para consultar a placa do veículo e para cadastrá-lo caso ele não esteja cadastrado(Vai pegar o retorno do form que vai consultar a placa.)."
-            android:padding="10dp"
-            android:layout_marginTop="100dp"
-            android:fontFamily="@font/allerregular"
+            android:fontFamily="@font/allerregular"/>
 
-            />
+        <ImageView
+            android:id="@+id/car_image_view"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@mipmap/ic_launcher" />
+
+        <Button
+            android:id="@+id/btn_save_car"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/color_btn"
+            android:text="@string/btn_save_car"/>
+
     </LinearLayout>
 
 

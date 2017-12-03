@@ -70,6 +70,14 @@
     <!-- Telas -->
     <string name="msq_user_data">Meus Dados</string>
 
+    <!-- Fragment Veículos -->
+    <string name="hint_search_plate">Pesquisar por placa</string>
+    <string name="msq_car_data">Dados do Veículo</string>
+    <string name="hint_plate">Informe a placa</string>
+    <string name="hint_model">Informe o modelo</string>
+    <string name="hint_alter_car_image">Toque na imagem abaixo para alterá-la</string>
+    <string name="btn_save_car">Salvar Dados</string>
+
 
 
     <string-array name="types_user">
