@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import basic.Auth;
 import basic.Responsaveis;
 import basic.Usuario;
+import basic.Uteis;
 import basic.VisitaMotivo;
 
 /**
@@ -68,6 +69,16 @@ public class AddAuth {
             visitaMotivosArrayList.add(visitaMotivo);
         }
         auth.setVisitaMotivos(visitaMotivosArrayList);
+
+        JSONObject jsonObjectUteis = jsonObjectAuth.getJSONObject("uteis");
+
+        //Alimentar o Uteis
+        Uteis uteis = new Uteis();
+        uteis.setQtdVisitantes(Integer.parseInt(jsonObjectUsuario.get("qtd_visitantes").toString()));
+        uteis.setQtdVeiculos(Integer.parseInt(jsonObjectUsuario.get("qtd_veiculos").toString()));
+        uteis.setLatitude(jsonObjectUsuario.get("latitude").toString());
+        uteis.setLongitude(jsonObjectUsuario.get("longitude").toString());
+        auth.setUteis(uteis);
 
     }
 

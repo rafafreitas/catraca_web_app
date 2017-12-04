@@ -17,6 +17,8 @@ public class Auth {
     private Usuario usuario;
     private ArrayList<Responsaveis> responsaveis;
     private ArrayList<VisitaMotivo> visitaMotivos;
+    private Uteis uteis;
+
 
     public Auth() {
     }
@@ -86,7 +88,13 @@ public class Auth {
         this.visitaMotivos = visitaMotivos;
     }
 
+    public Uteis getUteis() {
+        return uteis;
+    }
 
+    public void setUteis(Uteis uteis) {
+        this.uteis = uteis;
+    }
 
 
 
