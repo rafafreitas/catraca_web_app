@@ -69,12 +69,6 @@ public class AddAuth {
         }
         auth.setVisitaMotivos(visitaMotivosArrayList);
 
-
-
-
-
-
-
     }
 
 }

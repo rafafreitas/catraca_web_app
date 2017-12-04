@@ -88,7 +88,6 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                                 .setCancelable(false)
                                 .setTitle(R.string.app_name)
                                 .setMessage(R.string.info_internet)
-
                                 // Positive button
                                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int which) {

@@ -1,5 +1,6 @@
 package com.example.rafael.catraca_web_app;
 
+import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,5 +21,21 @@ public class AboutActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+
+        /*
+        getResources().getConfiguration().orientation
+        ORIENTATION_UNDEFINED = 0
+        ORIENTATION_PORTRAIT = 1
+        ORIENTATION_LANDSCAPE = 2
+        ORIENTATION_SQUARE = 3
+        */
+        Configuration configuration = getResources().getConfiguration();
+
+        if (configuration.orientation == Configuration.ORIENTATION_LANDSCAPE){
+            //...
+        }else{
+            //...
+        }
     }
 }

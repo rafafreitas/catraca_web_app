@@ -15,9 +15,6 @@ public class Usuario {
     private int tipo_id;
     private int filial_id;
 
-    private double latitude;
-    private double longitude;
-
     public Usuario() {
 
     }
@@ -84,21 +81,5 @@ public class Usuario {
 
     public void setFilial_id(int filial_id) {
         this.filial_id = filial_id;
-    }
-
-    public double getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(String latitude) {
-        this.latitude = latitude;
-    }
-
-    public double getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(String longitude) {
-        this.longitude = longitude;
     }
 }
