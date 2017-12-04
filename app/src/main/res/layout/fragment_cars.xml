@@ -35,7 +35,9 @@
                 android:fontFamily="@font/allerregular"
                 android:drawableEnd="@drawable/ic_search_black_24dp"
                 android:drawablePadding="5dp"
-                android:textAlignment="center"/>
+                android:textAlignment="center"
+                android:textColor="@color/colorBlack"/>
+
         </android.support.design.widget.TextInputLayout>
 
         <TextView
@@ -111,7 +113,8 @@
             android:layout_height="200dp"
             android:layout_marginTop="10dp"
             android:layout_gravity="center_horizontal"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@mipmap/ic_launcher"
+            android:clickable="true"/>
 
         <Button
             android:id="@+id/btn_save_car"
