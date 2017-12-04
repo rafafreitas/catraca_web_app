@@ -129,10 +129,12 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true;
             case R.id.action_myMaps:
-                //ChamarActivitydeMaps();
+                Intent i = new Intent(getApplicationContext(), MapsActivity.class);
+                startActivity(i);
                 return true;
             case R.id.action_about:
-                //ChamarActivityFalandoSobreOaplicativo();
+                i = new Intent(getApplicationContext(), AboutActivity.class);
+                startActivity(i);
                 return true;
             case R.id.action_exit:
 

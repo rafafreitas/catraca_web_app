@@ -79,10 +79,10 @@
     <string name="btn_save_car">Salvar Dados</string>
 
 
-
     <string-array name="types_user">
         <item id="1">CPF</item>
         <item id="2">CNPJ</item>
     </string-array>
+    <string name="title_activity_maps">Map</string>
 
 </resources>
