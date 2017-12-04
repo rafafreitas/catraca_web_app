@@ -3,12 +3,16 @@ package com.example.rafael.catraca_web_app;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Location;
 import android.os.Vibrator;
 import android.support.design.widget.TextInputLayout;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
@@ -18,11 +22,17 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.GoogleMap;
+
 import org.json.JSONException;
 
 import java.util.concurrent.ExecutionException;
 
 import basic.Auth;
+import basic.Usuario;
 import request.RequesterLogin;
 import util.Encrypy;
 import util.Internet;
@@ -32,7 +42,7 @@ import util.Util;
  * Created by rafael on 24/11/17.
  */
 
-public class LoginActivity extends AppCompatActivity{
+public class LoginActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, ActivityCompat.OnRequestPermissionsResultCallback{
     private static final String TAG = "ActivityLoginUser";
     private Vibrator vib;
     Animation animShake;
@@ -41,6 +51,12 @@ public class LoginActivity extends AppCompatActivity{
     private Button btnLogin;
     private Internet internet;
     private Auth auth; //SingleUser
+    Usuario usuario;
+    private GoogleApiClient mGoogleApiClient;
+    private static final int MY_LOCATION_REQUEST_CODE = 1;
+    GoogleMap map;
+    double longitude;
+    double latitude;
 
 
     @Override
@@ -203,4 +219,64 @@ public class LoginActivity extends AppCompatActivity{
         }
     }
 
+    private synchronized void callConnection(){
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .addOnConnectionFailedListener(this)
+                .addConnectionCallbacks(this)
+                .addApi(LocationServices.API)
+                .build();
+        mGoogleApiClient.connect();
+    }
+
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case 1: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                } else {
+                    // permission denied, boo! Disable the
+                    // functionality that depends on this permission.
+                }
+                return;
+            }
+            // other 'case' lines to check for other
+            // permissions this app might request
+        }
+    }
+
+    public boolean checkLocationPermission()
+    {
+        String permission = "android.permission.ACCESS_FINE_LOCATION";
+        int res = this.checkCallingOrSelfPermission(permission);
+        return (res == PackageManager.PERMISSION_GRANTED);
+    }
+
+    @Override
+    public void onConnected(Bundle bundle) {
+        Log.i("LOG", "onConnected" + bundle + ")");
+
+        Location l = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
+
+        if (l != null) {
+            Log.i("LOG", "Latitude:" + l.getLatitude() + ")");
+            Log.i("LOG", "longitude" + l.getLongitude() + ")");
+            longitude = usuario.getLongitude();
+            latitude = usuario.getLatitude();
+
+            usuario.setLatitude(Double.toString(latitude));
+            usuario.setLongitude(Double.toString(longitude));
+        }
+    }
+
+    @Override
+    public void onConnectionSuspended(int i) {
+        //
+    }
+
+    @Override
+    public void onConnectionFailed(ConnectionResult connectionResult) {
+        //
+    }
 }
