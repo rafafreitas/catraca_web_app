@@ -42,7 +42,7 @@ import util.Util;
  * Created by rafael on 24/11/17.
  */
 
-public class LoginActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, ActivityCompat.OnRequestPermissionsResultCallback{
+public class LoginActivity extends AppCompatActivity{
     private static final String TAG = "ActivityLoginUser";
     private Vibrator vib;
     Animation animShake;
@@ -53,10 +53,8 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     private Auth auth; //SingleUser
     Usuario usuario;
     private GoogleApiClient mGoogleApiClient;
-    private static final int MY_LOCATION_REQUEST_CODE = 1;
     GoogleMap map;
-    double longitude;
-    double latitude;
+
 
 
     @Override
@@ -218,15 +216,6 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         }
     }
 
-    private synchronized void callConnection(){
-        mGoogleApiClient = new GoogleApiClient.Builder(this)
-                .addOnConnectionFailedListener(this)
-                .addConnectionCallbacks(this)
-                .addApi(LocationServices.API)
-                .build();
-        mGoogleApiClient.connect();
-    }
-
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
         switch (requestCode) {
             case 1: {
@@ -250,32 +239,5 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         String permission = "android.permission.ACCESS_FINE_LOCATION";
         int res = this.checkCallingOrSelfPermission(permission);
         return (res == PackageManager.PERMISSION_GRANTED);
-    }
-
-    @Override
-    public void onConnected(Bundle bundle) {
-        Log.i("LOG", "onConnected" + bundle + ")");
-
-        Location l = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
-
-        if (l != null) {
-            Log.i("LOG", "Latitude:" + l.getLatitude() + ")");
-            Log.i("LOG", "longitude" + l.getLongitude() + ")");
-            longitude = usuario.getLongitude();
-            latitude = usuario.getLatitude();
-
-            usuario.setLatitude(Double.toString(latitude));
-            usuario.setLongitude(Double.toString(longitude));
-        }
-    }
-
-    @Override
-    public void onConnectionSuspended(int i) {
-        //
-    }
-
-    @Override
-    public void onConnectionFailed(ConnectionResult connectionResult) {
-        //
     }
 }
