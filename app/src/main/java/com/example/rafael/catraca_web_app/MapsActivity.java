@@ -42,6 +42,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         if (checkLocationPermission()) {
             callConnection();
         }
+
+        //Comment para commitar
     }
 
     @Override
