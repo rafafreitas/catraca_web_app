@@ -113,7 +113,7 @@
             android:layout_height="200dp"
             android:layout_marginTop="10dp"
             android:layout_gravity="center_horizontal"
-            android:src="@mipmap/ic_launcher"
+            android:src="@drawable/ic_car_image"
             android:clickable="true"/>
 
         <Button
