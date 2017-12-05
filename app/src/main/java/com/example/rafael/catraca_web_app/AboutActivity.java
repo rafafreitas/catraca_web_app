@@ -3,8 +3,11 @@ package com.example.rafael.catraca_web_app;
 import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
+import util.ConfigOrientation;
 
 public class AboutActivity extends AppCompatActivity {
 
@@ -22,6 +25,8 @@ public class AboutActivity extends AppCompatActivity {
             }
         });
 
+        //Isso aqui já faz tudo XD
+        Log.i("Orientação = ", ConfigOrientation.verificaOrientacao(this));
 
         /*
         getResources().getConfiguration().orientation
@@ -29,7 +34,7 @@ public class AboutActivity extends AppCompatActivity {
         ORIENTATION_PORTRAIT = 1
         ORIENTATION_LANDSCAPE = 2
         ORIENTATION_SQUARE = 3
-        */
+
         Configuration configuration = getResources().getConfiguration();
 
         if (configuration.orientation == Configuration.ORIENTATION_LANDSCAPE){
@@ -37,5 +42,6 @@ public class AboutActivity extends AppCompatActivity {
         }else{
             //...
         }
+        */
     }
 }
