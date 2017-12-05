@@ -114,8 +114,8 @@ public class LoginActivity extends AppCompatActivity{
                                         Util.AtivaDialogHandler(5, "", "");
                                         Util.AtivaDialogHandler(1, "CatracaWeb", auth.getMensagemErroApi());
                                     } else {
-                                        Intent it = new Intent(getBaseContext(), HomeActivity.class);
-                                        startActivity(it);
+                                        Intent i = new Intent(getBaseContext(), HomeActivity.class);
+                                        startActivity(i);
                                         finish();
                                     }
                                 } catch (JSONException e) {
