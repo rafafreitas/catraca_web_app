@@ -28,6 +28,8 @@ public class AboutActivity extends AppCompatActivity {
         //Isso aqui já faz tudo XD
         Log.i("Orientação = ", ConfigOrientation.verificaOrientacao(this));
 
+        //Comment para commitar
+
         /*
         getResources().getConfiguration().orientation
         ORIENTATION_UNDEFINED = 0
