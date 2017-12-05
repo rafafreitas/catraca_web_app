@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorBackgroud"
     android:fillViewport="true"
-    tools:context="com.example.rafael.catraca_web_app.MainActivity"
+    tools:context="com.example.rafael.catraca_web_app.HomeActivity"
     >
 
     <android.support.v4.view.ViewPager

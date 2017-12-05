@@ -23,9 +23,7 @@
     <permission
         android:name="com.dandewine.user.thinkmobiletest.permission.MAPS_RECEIVE"
         android:protectionLevel="signature" />
-
-    <permission android:name="android.permission.ACCESS_FINE_LOCATION"
-        />
+    <permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -34,7 +32,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppCompat.TelaCheia">
@@ -44,7 +41,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".LoginActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
@@ -60,6 +56,11 @@
         <activity
             android:name=".UserDataActivity"
             android:theme="@style/AppThemeAuth" />
+        <activity
+            android:name=".AboutActivity"/>
+        <activity
+            android:name=".NewVisitActivity"
+            android:theme="@style/AppThemeAuth"/>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -71,7 +72,6 @@
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="@string/google_maps_key" />
-
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
@@ -79,11 +79,8 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
-
-        <activity
-            android:name=".AboutActivity">
-        </activity>
-
+        <activity android:name=".AboutActivity"></activity>
+        <activity android:name=".NewVisitActivity"></activity>
     </application>
 
 </manifest>
