@@ -51,7 +51,6 @@
     <string name="info_login">Efetuando Login...</string>
     <string name="info_update">Atualizando dados...</string>
 
-
     <!-- Validações de Formulário-->
     <string name="err_msg_required">Preencha este campo!</string>
     <string name="err_msg_nome">Informe um Nome</string>
@@ -77,6 +76,15 @@
     <string name="hint_model">Informe o modelo</string>
     <string name="hint_alter_car_image">Toque na imagem abaixo para alterá-la</string>
     <string name="btn_save_car">Salvar Dados</string>
+
+    <!-- Fragment Visitantes -->
+    <string name="hint_search_cpf">Busca por CPF</string>
+    <string name="msq_visitantes">Dados do Visitante</string>
+    <string name="hint_visit_nome">Informe o Nome</string>
+    <string name="hint_visit_rg">Informe o RG</string>
+    <string name="hint_alter_face">Foto do Visitante</string>
+    <string name="hint_alter_doc">Foto do Documento</string>
+    <string name="btn_save_visitante">Salvar Dados</string>
 
 
     <string-array name="types_user">

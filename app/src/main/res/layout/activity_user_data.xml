@@ -60,6 +60,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_nome"
                 android:drawableStart="@drawable/ic_person_outline_black"
+                android:textColor="@color/colorBlack"
                 android:drawablePadding="5dp"
                 android:fontFamily="@font/allerregular"
 
@@ -86,6 +87,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_email_cad"
                 android:drawableStart="@drawable/ic_mail_outline_black"
+                android:textColor="@color/colorBlack"
                 android:drawablePadding="5dp"
                 android:fontFamily="@font/allerregular"
 
@@ -110,6 +112,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_cpf"
                 android:drawableStart="@drawable/ic_address_card"
+                android:textColor="@color/colorBlack"
                 android:drawablePadding="7dp"
                 android:fontFamily="@font/allerregular"
                 />
