@@ -76,6 +76,11 @@
     <string name="hint_model">Informe o modelo</string>
     <string name="hint_alter_car_image">Toque na imagem abaixo para alterá-la</string>
     <string name="btn_save_car">Salvar Dados</string>
+    <string name="error_wrong_search_plate">Placa do veículo imcompleta</string>
+
+    <string name="image_dialog_title">Selecione uma opção</string>
+    <string name="image_get_camera">Tirar foto com a câmera</string>
+    <string name="image_get_gallery">Selecionar foto da galeria</string>
 
     <!-- Fragment Visitantes -->
     <string name="hint_search_cpf">Busca por CPF</string>

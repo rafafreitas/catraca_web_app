@@ -4,8 +4,13 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Message;
 import android.os.Handler;
+import android.util.Base64;
+
+import java.io.ByteArrayOutputStream;
 
 /**
  * Created by rafael on 28/11/17.
@@ -24,6 +29,21 @@ public class Util {
     public static Context getCtxAtual()
     {
         return ctxAtual;
+    }
+
+    public static String getBase64Image(Bitmap image){
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        image.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        byte[] imageBytes = baos.toByteArray();
+        String imageString = Base64.encodeToString(imageBytes, Base64.DEFAULT);
+
+        return imageString;
+    }
+
+    public static Bitmap getImageFromBase64(String base64Image){
+        byte[] imageBytes = Base64.decode(base64Image, Base64.DEFAULT);
+        Bitmap decodedImage = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
+        return decodedImage;
     }
 
     public static String formatVeiculoPlaca(String unformatted){

@@ -2,6 +2,7 @@ package fragments;
 
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -18,6 +19,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,13 +29,20 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.rafael.catraca_web_app.R;
+import com.example.rafael.catraca_web_app.UserDataActivity;
+
+import org.json.JSONException;
 
 import java.io.IOException;
+import java.util.concurrent.ExecutionException;
 
+import basic.Auth;
 import basic.Usuario;
 import basic.Veiculos;
+import request.RequesterVeiculo;
 import util.Internet;
 import util.Mask;
+import util.Util;
 
 /**
  * Created by rafael on 29/11/17.
@@ -54,6 +63,7 @@ public class FragmentCars extends Fragment {
 
     private Internet internet;
     private Veiculos veiculo;
+    private Auth auth;
 
     public FragmentCars() {
         // Required empty public constructor
@@ -75,6 +85,12 @@ public class FragmentCars extends Fragment {
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState){
+
+        animShake = AnimationUtils.loadAnimation(getActivity().getApplicationContext(),R.anim.shake);
+        vib = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+        auth = Auth.getInstance();
+        internet = new Internet(getActivity());
+        Util.setCtxAtual(getActivity());
 
         veiculo = new Veiculos();
         initInputs();
@@ -105,6 +121,9 @@ public class FragmentCars extends Fragment {
             @Override
             public void onClick(View v) {
                 //Validar form e depois salvar
+                if(formIsValid()){
+
+                }
             }
         });
 
@@ -115,6 +134,67 @@ public class FragmentCars extends Fragment {
 
                 if(i == EditorInfo.IME_ACTION_SEARCH){
                     //Procurar e preecher form se existir
+                    final String placaSearch = inputSearchPlate.getText().toString();
+                    layoutSearchPlate.setErrorEnabled(false);
+
+                    if(placaSearch.length() < 8){
+
+                        inputSearchPlate.setAnimation(animShake);
+                        inputSearchPlate.startAnimation(animShake);
+                        vib.vibrate(120);
+                        layoutSearchPlate.setErrorEnabled(true);
+                        layoutSearchPlate.setError(getString(R.string.error_wrong_search_plate));
+                        inputSearchPlate.setError(getString(R.string.err_msg_required));
+
+                    }else if(!internet.verificarConexao()){
+
+                        new android.support.v7.app.AlertDialog.Builder(getActivity())
+                                .setCancelable(false)
+                                .setTitle(R.string.app_name)
+                                .setMessage(R.string.info_internet)
+
+                                // Positive button
+                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+
+                                    }
+                                }).show();
+                    }
+                    else{
+                        Util.AtivaDialogHandler(2, "", "Buscando...");
+                        new Thread(new Runnable() {
+
+                            @Override
+                            public void run() {
+                                RequesterVeiculo rv = new RequesterVeiculo();
+
+                                try{
+                                    rv.setContext(getActivity());
+                                    veiculo = rv.checkVeiculoByPlaca(placaSearch);
+
+                                    auth = Auth.getInstance();
+
+                                    if(auth.getMessage().equals("ERROR")){
+                                        Util.AtivaDialogHandler(5, "", "");
+                                        Util.AtivaDialogHandler(1, getString(R.string.app_name), auth.getMensagemErroApi());
+                                    }else{
+                                        Util.stopProgressDialog();
+                                        feedForm();
+                                    }
+
+                                }catch (JSONException e) {
+                                    Util.stopProgressDialog();
+                                    e.printStackTrace();
+                                } catch (InterruptedException e) {
+                                    Util.stopProgressDialog();
+                                    e.printStackTrace();
+                                } catch (ExecutionException e) {
+                                    Util.stopProgressDialog();
+                                    e.printStackTrace();
+                                }
+                            }
+                        }).start();
+                    }
                 }
                 return false;
             }
@@ -130,14 +210,24 @@ public class FragmentCars extends Fragment {
 
     private void feedForm(){
 
+        if(veiculo == null){
+            return;
+        }
+        inputPlate.setText(veiculo.getVeic_placa());
+        inputPlate.setEnabled(veiculo.getUser_id() < 1);
+
+        inputModel.setText(veiculo.getVeic_modelo());
+        if (false) {
+            btnCarImageView.setImageBitmap(Util.getImageFromBase64(veiculo.getVeic_foto()));
+        }
     }
 
     private void showPictureDialog(){
         AlertDialog.Builder pictureDialog = new AlertDialog.Builder(getActivity());
-        pictureDialog.setTitle("Select Action");
+        pictureDialog.setTitle(getString(R.string.image_dialog_title));
         String[] pictureDialogItems = {
-                "Selecionar foto da galeria",
-                "Tirar foto com a câmera" };
+                getString(R.string.image_get_gallery),
+                getString(R.string.image_get_camera) };
         pictureDialog.setItems(pictureDialogItems,
                 new DialogInterface.OnClickListener() {
                     @Override
@@ -168,7 +258,31 @@ public class FragmentCars extends Fragment {
     }
 
     private boolean formIsValid(){
-        return false;
+
+        if(veiculo == null){
+            if(inputPlate.getText().toString().length() < 8){
+                inputPlate.setAnimation(animShake);
+                inputPlate.startAnimation(animShake);
+                vib.vibrate(120);
+                inputPlate.setError(getString(R.string.err_msg_required));
+                layoutPlate.setError(getString(R.string.error_wrong_search_plate));
+                layoutPlate.setErrorEnabled(true);
+                return false;
+            }
+        }
+        if(inputModel.getText().toString().length() < 1){
+            inputModel.setAnimation(animShake);
+            inputModel.startAnimation(animShake);
+            vib.vibrate(120);
+            inputModel.setError(getString(R.string.err_msg_required));
+            layoutModel.setError(getString(R.string.error_wrong_search_plate));
+            layoutModel.setErrorEnabled(true);
+            return  false;
+        }
+
+        layoutPlate.setErrorEnabled(false);
+        layoutModel.setErrorEnabled(false);
+        return true;
     }
 
     private void mask(){
