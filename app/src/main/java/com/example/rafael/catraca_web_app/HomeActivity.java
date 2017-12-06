@@ -12,9 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -136,7 +134,10 @@ public class HomeActivity extends AppCompatActivity {
             case R.id.action_about:
                 i = new Intent(getApplicationContext(), AboutActivity.class);
                 startActivity(i);
-                getSupportActionBar().hide();
+                return true;
+            case R.id.action_avaliacao:
+                i = new Intent(getApplicationContext(), AvaliacaoActivity.class);
+                startActivity(i);
                 return true;
             case R.id.action_exit:
 

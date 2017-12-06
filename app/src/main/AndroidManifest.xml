@@ -56,9 +56,9 @@
         <activity
             android:name=".UserDataActivity"
             android:theme="@style/AppThemeAuth" />
-        <activity android:name=".AboutActivity"
-            android:label="Sobre o aplicativo"
-            />
+        <activity
+            android:name=".AboutActivity"
+            android:label="Sobre o aplicativo" />
         <activity
             android:name=".NewVisitActivity"
             android:label="Visita"
@@ -81,10 +81,10 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
-
-        <activity android:name=".BancoActivity"
-            android:label="Avaliação">
-        </activity>
+        <activity
+            android:name=".AvaliacaoActivity"
+            android:label="Avaliação"></activity>
+        <activity android:name=".ListAvaliacaoActivity"></activity>
     </application>
 
 </manifest>

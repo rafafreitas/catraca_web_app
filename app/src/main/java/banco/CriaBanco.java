@@ -13,16 +13,17 @@ import com.google.android.gms.internal.db;
 public class CriaBanco extends SQLiteOpenHelper {
 
     private static final String NOME_BANCO = "banco.db";
-    private static final String TABELA = "avaliacao";
-    private static final String ID = "_id";
-    private static final String AUTOR = "autor";
-    private static final String DESCRICAO = "descricao";
-    private static final String NOTA = "nota";
-    private static final int VERSAO = 1;
+    public static final String TABELA = "avaliacao";
+    public static final String ID = "_id";
+    public static final String USUARIO = "usuario";
+    public static final String DESCRICAO = "descricao";
+    public static final String NOTA = "nota";
+    public static final int VERSAO = 1;
 
-    public CriaBanco(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
+    public CriaBanco(Context context) {
+        super(context, NOME_BANCO,null,VERSAO);
     }
+
 
     @Override
     // é chamado quando a aplicação cria o banco de dados pela primeira vez.
@@ -30,7 +31,7 @@ public class CriaBanco extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String sql = "CREATE TABLE"+TABELA+"("
                 + ID + " integer primary key autoincrement,"
-                + AUTOR + " text,"
+                + USUARIO + " text,"
                 + DESCRICAO + " text,"
                 + NOTA + " text"
                 +")";
