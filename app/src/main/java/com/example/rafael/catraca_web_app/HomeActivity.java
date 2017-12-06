@@ -122,7 +122,7 @@ public class HomeActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle item selection
+
         switch (item.getItemId()) {
             case R.id.action_myAccount:
                 Intent intent = new Intent(HomeActivity.this,UserDataActivity.class);
@@ -136,6 +136,7 @@ public class HomeActivity extends AppCompatActivity {
             case R.id.action_about:
                 i = new Intent(getApplicationContext(), AboutActivity.class);
                 startActivity(i);
+                getSupportActionBar().hide();
                 return true;
             case R.id.action_exit:
 
