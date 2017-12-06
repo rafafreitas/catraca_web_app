@@ -26,6 +26,27 @@ public class Util {
         return ctxAtual;
     }
 
+    public static String formatVeiculoPlaca(String unformatted){
+
+        if(!unformatted.equals("")){
+
+            if(unformatted.length() == 8){
+                //Já está formatada
+                if (unformatted.contains("-"))
+                    return unformatted;
+            }
+            else if(unformatted.length() == 7){
+                //Adicionar o '-'
+                if(!unformatted.contains("-")){
+                    StringBuilder builder = new StringBuilder(unformatted.substring(0,2));
+                    builder.append("-");
+                    builder.append(unformatted.substring(3,6));
+                    return builder.toString();
+                }
+            }
+        }
+        return unformatted;
+    }
 
     public static void AtivaDialogHandler(int Evento, String Titulo, String Mensagem)
     {

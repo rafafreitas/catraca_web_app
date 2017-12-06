@@ -1,7 +1,10 @@
 package fragments;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Vibrator;
@@ -18,11 +21,14 @@ import android.view.animation.Animation;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.rafael.catraca_web_app.R;
+
+import java.io.IOException;
 
 import basic.Usuario;
 import basic.Veiculos;
@@ -42,7 +48,7 @@ public class FragmentCars extends Fragment {
     Animation animShake;
 
     private EditText inputSearchPlate, inputPlate, inputModel;
-    private ImageView carImageView;
+    private ImageView btnCarImageView;
     private TextInputLayout layoutSearchPlate, layoutPlate, layoutModel;
     private Button btnSaveCar;
 
@@ -81,13 +87,15 @@ public class FragmentCars extends Fragment {
         inputPlate = (EditText)getActivity().findViewById(R.id.input_placa);
         inputModel = (EditText)getActivity().findViewById(R.id.input_model);
 
-        carImageView = (ImageView) getActivity().findViewById(R.id.car_image_view);
+        btnCarImageView = (ImageView) getActivity().findViewById(R.id.btn_car_image);
 
         layoutSearchPlate = (TextInputLayout)getActivity().findViewById(R.id.input_layout_pesquisa_placa);
         layoutPlate = (TextInputLayout)getActivity().findViewById(R.id.input_layout_placa);
         layoutModel = (TextInputLayout)getActivity().findViewById(R.id.input_layout_model);
 
         btnSaveCar = (Button)getActivity().findViewById(R.id.btn_save_car);
+
+        setListeners();
     }
 
     private void setListeners(){
@@ -113,27 +121,50 @@ public class FragmentCars extends Fragment {
         });
 
         //Trocar imagem
-        carImageView.setOnClickListener(new View.OnClickListener(){
-            @Override
+        btnCarImageView.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-
-                Toast.makeText(getActivity(), "asdasdasdasdasd", Toast.LENGTH_SHORT).show();
-
-                Intent tirarFoto = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(tirarFoto,0);
-
-                Intent buscarFoto = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(buscarFoto, 1);
+                showPictureDialog();
             }
         });
     }
 
-    public void updateImage(View v){
+    private void feedForm(){
 
     }
 
-    private void feedForm(Veiculos veiculo){
+    private void showPictureDialog(){
+        AlertDialog.Builder pictureDialog = new AlertDialog.Builder(getActivity());
+        pictureDialog.setTitle("Select Action");
+        String[] pictureDialogItems = {
+                "Selecionar foto da galeria",
+                "Tirar foto com a câmera" };
+        pictureDialog.setItems(pictureDialogItems,
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which) {
+                            case 0:
+                                choosePhotoFromGallary();
+                                break;
+                            case 1:
+                                takePhotoFromCamera();
+                                break;
+                        }
+                    }
+                });
+        pictureDialog.show();
+    }
 
+    private void choosePhotoFromGallary(){
+
+        Intent buscarFoto = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(buscarFoto, 1);
+    }
+
+    private void takePhotoFromCamera(){
+
+        Intent tirarFoto = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(tirarFoto,0);
     }
 
     private boolean formIsValid(){
@@ -153,16 +184,22 @@ public class FragmentCars extends Fragment {
         super.onActivityResult(requestCode, resultCode, resultIntent);
 
         switch (requestCode){
-            case 0:
-                if(resultCode == getActivity().RESULT_OK){
-                    Uri selectedImage = resultIntent.getData();
-                    carImageView.setImageURI(selectedImage);
+            case 0: //Camera
+                if(resultCode == getActivity().RESULT_OK && resultIntent.getExtras().get("data") != null){
+                    Bitmap thumbnail = (Bitmap) resultIntent.getExtras().get("data");
+                    btnCarImageView.setImageBitmap(thumbnail);
                 }
                 break;
-            case 1:
-                if(resultCode == getActivity().RESULT_OK){
-                    Uri selectedImage = resultIntent.getData();
-                    carImageView.setImageURI(selectedImage);
+            case 1: //Galeria
+                if(resultCode == getActivity().RESULT_OK && resultIntent.getData() != null){
+                    Uri contentURI = resultIntent.getData();
+                    try{
+                        Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), contentURI);
+                        btnCarImageView.setImageBitmap(bitmap);
+                    }
+                    catch (IOException e){
+                    }
+
                 }break;
         }
     }
