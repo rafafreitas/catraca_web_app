@@ -7,8 +7,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.List;
+
 import banco.BancoController;
+import basic.Auth;
 import basic.Avaliacao;
+import basic.Usuario;
 
 /**
  * Created by matheus on 06/12/17.
@@ -16,55 +20,115 @@ import basic.Avaliacao;
 
 public class AvaliacaoActivity extends AppCompatActivity {
 
+    private Auth auth; //SingleUser
+    BancoController bancoController;
+    Avaliacao avaliacao;
+    EditText edt_Usuario;
+    EditText edt_Descricao;
+    EditText edt_Nota;
+    Usuario usuario;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_avaliacao);
 
+        bancoController = new BancoController(getBaseContext());
+
         /*
         Instancia dos elementos presentes no XML
         */
-        Button btn_classificarAvaliacao = (Button)findViewById(R.id.btn_classificarAvaliacao);
-        Button btn_voltarAvaliacao = (Button)findViewById(R.id.btn_voltarAvaliacao);
+        Button btn_classificarAvaliacao = (Button) findViewById(R.id.btn_classificarAvaliacao);
+        Button btn_voltarAvaliacao = (Button) findViewById(R.id.btn_voltarAvaliacao);
+        Button btn_delete = (Button) findViewById(R.id.btn_delete);
 
-        //
-        btn_voltarAvaliacao.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+        auth = Auth.getInstance();
+        usuario = auth.getUsuario();
+
+        edt_Usuario = (EditText) findViewById(R.id.editTextUsuario);
+        edt_Descricao = (EditText) findViewById(R.id.editTextDescricao);
+        edt_Nota = (EditText) findViewById(R.id.editTextNota);
+
+        List<Avaliacao> listAvaliacao = bancoController.buscarAvaliacao(Integer.toString(usuario.getUser_id()));
+
+        if (listAvaliacao.size() > 0) {
+            avaliacao = listAvaliacao.get(0);
+            edt_Usuario.setText(listAvaliacao.get(0).getUsuarioNome());
+            edt_Descricao.setText(listAvaliacao.get(0).getDescricao());
+            edt_Nota.setText(listAvaliacao.get(0).getNota());
+        } else
+            avaliacao = null;
+
         //CHAMADA DO MÉTODO PARA INSERIR OS DADOS
 
         //NO CLICK DO BOTÃO DE CLASSIFICAR AVALIAÇÃO
         btn_classificarAvaliacao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BancoController bancoController = new BancoController(getBaseContext());
-                EditText edt_Usuario = (EditText)findViewById(R.id.editTextUsuario);
-                EditText edt_Descricao = (EditText)findViewById(R.id.editTextDescricao);
-                EditText edt_Nota = (EditText)findViewById(R.id.editTextNota);
-                String usuarioString = edt_Usuario.getText().toString();
-                String descricaoString = edt_Descricao.getText().toString();
-                String notaString = edt_Nota.getText().toString();
 
+                Boolean alterar;
 
-                BancoController bc = new BancoController(AvaliacaoActivity.this);
-                Avaliacao avaliacao = new Avaliacao();
+                if (avaliacao == null) {
+                    avaliacao = new Avaliacao();
+                    alterar = false;
+                } else {
+                    alterar = true;
+                }
 
-                if (avaliacao != null){
-                    avaliacao.setUsuarioNome(edt_Usuario.getText().toString());
-                    avaliacao.setDescricao(edt_Descricao.getText().toString());
-                    avaliacao.setNota(edt_Nota.getText().toString());
+                avaliacao.setUsuarioId(usuario.getUser_id());
+                avaliacao.setUsuarioNome(edt_Usuario.getText().toString());
+                avaliacao.setDescricao(edt_Descricao.getText().toString());
+                avaliacao.setNota(edt_Nota.getText().toString());
 
-                    bc.salvar(avaliacao);
+                bancoController.salvar(avaliacao);
 
-                    Toast.makeText(getApplicationContext(), "Dados inseridos com sucesso!", Toast.LENGTH_LONG).show();
-                }else
-                    Toast.makeText(getApplicationContext(), "Dados não foram inseridos", Toast.LENGTH_LONG).show();
+                //-------------------------------------------------------------------------------------------------------
 
+                if (avaliacao.getUsuarioNome().isEmpty()) {
+                    Toast.makeText(AvaliacaoActivity.this, "Informe o nome de usuário", Toast.LENGTH_SHORT).show();
+                } else if (avaliacao.getDescricao().isEmpty()) {
+                    Toast.makeText(AvaliacaoActivity.this, "Informe alguma descrição", Toast.LENGTH_SHORT).show();
+                } else if (avaliacao.getNota().isEmpty() || avaliacao.getNota().equals("SFA") || avaliacao.getNota().equals("SFS") || avaliacao.getNota().equals("SFO")) {
+                    Toast.makeText(AvaliacaoActivity.this, "Dê alguma nota - SFA, SFS ou SFO", Toast.LENGTH_SHORT).show();
+                }
+                else
+                    Toast.makeText(AvaliacaoActivity.this, "...", Toast.LENGTH_SHORT).show();
+
+                //-------------------------------------------------------------------------------------------------------
+
+                if (alterar) {
+                    Toast.makeText(getApplicationContext(), "Dados alterados com sucesso!\n" + "Obrigado pela sua avaliação!!!", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Dados inseridos com sucesso!\n" + "Obrigado pela sua avaliação!!!", Toast.LENGTH_LONG).show();
+                }
+
+                    finish();
             }
         });
 
+        btn_voltarAvaliacao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+        btn_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (avaliacao.getUsuarioNome().isEmpty()){
+                    Toast.makeText(AvaliacaoActivity.this, "Informe o nome de usuário", Toast.LENGTH_SHORT).show();
+                }else if (avaliacao.getDescricao().isEmpty()){
+                    Toast.makeText(AvaliacaoActivity.this, "Informe alguma descrição", Toast.LENGTH_SHORT).show();
+                }else if (avaliacao.getNota().isEmpty() || avaliacao.getNota().equals("SFA") || avaliacao.getNota().equals("SFS") || avaliacao.getNota().equals("SFO")){
+                    Toast.makeText(AvaliacaoActivity.this, "Dê alguma nota - SFA, SFS ou SFO", Toast.LENGTH_SHORT).show();
+                }else
+                    avaliacao.setUsuarioNome("");
+                    avaliacao.setDescricao("");
+                    avaliacao.setNota("");
+                    finish();
+                    bancoController.excluir(avaliacao);
+                Toast.makeText(AvaliacaoActivity.this, "Avaliação deletada :( \n" + "Caso queira nos avaliar, estamos esperando!", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

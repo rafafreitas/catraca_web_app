@@ -82,16 +82,16 @@ public class BancoController {
         Cursor cursor = db.rawQuery(sql, argumentos);
         List<Avaliacao> avaliacoes= new ArrayList<Avaliacao>();
         while (cursor.moveToNext()) {
-            int id = cursor.getInt(
-                    cursor.getColumnIndex("ID"));
-            int usuarioId = cursor.getInt(
-                    cursor.getColumnIndex("USUARIOID"));
             String usuarioNome = cursor.getString(
-                    cursor.getColumnIndex("USUARIONOME"));
+                    cursor.getColumnIndex("usuarioNome"));
+            int id = cursor.getInt(
+                    cursor.getColumnIndex("id"));
+            int usuarioId = cursor.getInt(
+                    cursor.getColumnIndex("usuarioId"));
             String descricao = cursor.getString(
-                    cursor.getColumnIndex("DESCRICAO"));
+                    cursor.getColumnIndex("descricao"));
             String nota = cursor.getString(
-                    cursor.getColumnIndex("NOTA"));
+                    cursor.getColumnIndex("nota"));
             Avaliacao avaliacao = new Avaliacao();
             avaliacao.setId(id);
             avaliacao.setUsuarioId(usuarioId);
@@ -104,5 +104,13 @@ public class BancoController {
         cursor.close();
         db.close();
         return avaliacoes;
+    }
+
+    public void ajustandoTempo(){
+        try {
+            Thread.sleep(400);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
