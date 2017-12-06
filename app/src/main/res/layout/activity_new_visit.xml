@@ -89,7 +89,7 @@
                         android:text="@string/msg_motivos"
                         android:textColor="@color/colorBlack"
                         android:layout_margin="15dp"
-
+                        android:textSize="12dp"
                         android:fontFamily="@font/allerregular"
                         />
                     <android.support.design.widget.TextInputLayout
@@ -117,10 +117,10 @@
                         android:id="@+id/tv_responsavel"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/msg_motivos"
+                        android:text="@string/msg_responsaveis"
                         android:textColor="@color/colorBlack"
                         android:layout_margin="15dp"
-
+                        android:textSize="12dp"
                         android:fontFamily="@font/allerregular"
                         />
                     <android.support.design.widget.TextInputLayout
@@ -177,7 +177,10 @@
         </android.support.v4.widget.NestedScrollView>
     </RelativeLayout>
 
+    <include layout="@layout/fab_layout" />
+
     <android.support.design.widget.FloatingActionButton
+        android:id="@+id/myFab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"

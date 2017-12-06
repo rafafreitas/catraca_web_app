@@ -168,30 +168,33 @@ public class FragmentCars extends Fragment {
                             public void run() {
                                 RequesterVeiculo rv = new RequesterVeiculo();
 
-                                try{
+                                try {
                                     rv.setContext(getActivity());
                                     veiculo = rv.checkVeiculoByPlaca(placaSearch);
 
                                     auth = Auth.getInstance();
 
-                                    if(auth.getMessage().equals("ERROR")){
+                                    if (auth.getMessage().equals("ERROR")) {
                                         Util.AtivaDialogHandler(5, "", "");
                                         Util.AtivaDialogHandler(1, getString(R.string.app_name), auth.getMensagemErroApi());
-                                    }else{
+                                    } else {
                                         Util.stopProgressDialog();
                                         feedForm();
                                     }
-
-                                }catch (JSONException e) {
-                                    Util.stopProgressDialog();
-                                    e.printStackTrace();
-                                } catch (InterruptedException e) {
-                                    Util.stopProgressDialog();
-                                    e.printStackTrace();
-                                } catch (ExecutionException e) {
+                                }catch (Exception e){
                                     Util.stopProgressDialog();
                                     e.printStackTrace();
                                 }
+//                                }catch (JSONException e) {
+//                                    Util.stopProgressDialog();
+//                                    e.printStackTrace();
+//                                } catch (InterruptedException e) {
+//                                    Util.stopProgressDialog();
+//                                    e.printStackTrace();
+//                                } catch (ExecutionException e) {
+//                                    Util.stopProgressDialog();
+//                                    e.printStackTrace();
+//                                }
                             }
                         }).start();
                     }
