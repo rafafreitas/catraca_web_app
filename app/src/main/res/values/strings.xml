@@ -86,6 +86,12 @@
     <string name="hint_alter_doc">Foto do Documento</string>
     <string name="btn_save_visitante">Salvar Dados</string>
 
+    <!-- Fragment GerarVisita -->
+    <string name="msg_gerar_visita">Gerar Visita</string>
+    <string name="msg_motivos">Informe o Motivo</string>
+    <string name="msg_responsaveis">Informe o Responsável</string>
+    <string name="dica_gerar_visita">Busque pelo CPF ou Placa.\nAdicione quantos registros forem necessários.</string>
+
 
     <string-array name="types_user">
         <item id="1">CPF</item>
