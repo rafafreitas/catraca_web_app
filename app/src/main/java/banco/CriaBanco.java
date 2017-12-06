@@ -15,12 +15,13 @@ public class CriaBanco extends SQLiteOpenHelper {
     private static final String NOME_BANCO = "banco.db";
     public static final String TABELA = "avaliacao";
     public static final String ID = "_id";
-    public static final String USUARIO = "usuario";
+    public static final String USUARIOID = "usuarioId";
+    public static final String USUARIONOME = "usuarioNome";
     public static final String DESCRICAO = "descricao";
     public static final String NOTA = "nota";
     public static final int VERSAO = 1;
 
-    public CriaBanco(Context context) {
+    public CriaBanco(Context context){
         super(context, NOME_BANCO,null,VERSAO);
     }
 
@@ -29,9 +30,10 @@ public class CriaBanco extends SQLiteOpenHelper {
     // é chamado quando a aplicação cria o banco de dados pela primeira vez.
     // Nesse método devem ter todas as diretrizes de criação e população inicial do banco.
     public void onCreate(SQLiteDatabase db) {
-        String sql = "CREATE TABLE"+TABELA+"("
+        String sql = "CREATE TABLE "+TABELA+"("
                 + ID + " integer primary key autoincrement,"
-                + USUARIO + " text,"
+                + USUARIOID + " integer,"
+                + USUARIONOME + " text,"
                 + DESCRICAO + " text,"
                 + NOTA + " text"
                 +")";

@@ -84,7 +84,6 @@
         <activity
             android:name=".AvaliacaoActivity"
             android:label="Avaliação"></activity>
-        <activity android:name=".ListAvaliacaoActivity"></activity>
     </application>
 
 </manifest>

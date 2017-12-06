@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import banco.BancoController;
+import basic.Avaliacao;
 
 /**
  * Created by matheus on 06/12/17.
@@ -26,6 +27,13 @@ public class AvaliacaoActivity extends AppCompatActivity {
         Button btn_classificarAvaliacao = (Button)findViewById(R.id.btn_classificarAvaliacao);
         Button btn_voltarAvaliacao = (Button)findViewById(R.id.btn_voltarAvaliacao);
 
+        //
+        btn_voltarAvaliacao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         //CHAMADA DO MÉTODO PARA INSERIR OS DADOS
 
         //NO CLICK DO BOTÃO DE CLASSIFICAR AVALIAÇÃO
@@ -39,12 +47,24 @@ public class AvaliacaoActivity extends AppCompatActivity {
                 String usuarioString = edt_Usuario.getText().toString();
                 String descricaoString = edt_Descricao.getText().toString();
                 String notaString = edt_Nota.getText().toString();
-                String resultado;
 
-                resultado = bancoController.inserirDados(usuarioString,descricaoString,notaString);
 
-                Toast.makeText(getApplicationContext(), resultado, Toast.LENGTH_LONG).show();
+                BancoController bc = new BancoController(AvaliacaoActivity.this);
+                Avaliacao avaliacao = new Avaliacao();
+
+                if (avaliacao != null){
+                    avaliacao.setUsuarioNome(edt_Usuario.getText().toString());
+                    avaliacao.setDescricao(edt_Descricao.getText().toString());
+                    avaliacao.setNota(edt_Nota.getText().toString());
+
+                    bc.salvar(avaliacao);
+
+                    Toast.makeText(getApplicationContext(), "Dados inseridos com sucesso!", Toast.LENGTH_LONG).show();
+                }else
+                    Toast.makeText(getApplicationContext(), "Dados não foram inseridos", Toast.LENGTH_LONG).show();
+
             }
         });
+
     }
 }
