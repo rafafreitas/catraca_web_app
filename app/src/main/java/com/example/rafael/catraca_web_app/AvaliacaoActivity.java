@@ -80,29 +80,39 @@ public class AvaliacaoActivity extends AppCompatActivity {
                 avaliacao.setDescricao(edt_Descricao.getText().toString());
                 avaliacao.setNota(edt_Nota.getText().toString());
 
-                bancoController.salvar(avaliacao);
+                //Validations
 
-                //-------------------------------------------------------------------------------------------------------
+                if (avaliacao.getUsuarioNome().isEmpty()){
+                    Toast.makeText(getApplication(), "O nome de usuário é obrigatório!", Toast.LENGTH_SHORT).show();
+                }else if (avaliacao.getNota().isEmpty() && !avaliacao.getUsuarioNome().isEmpty()){
+                    Toast.makeText(getApplication(), "A nota é obrigatória!", Toast.LENGTH_SHORT).show();
+                }else{
 
-                if (avaliacao.getUsuarioNome().isEmpty()) {
-                    Toast.makeText(AvaliacaoActivity.this, "Informe o nome de usuário", Toast.LENGTH_SHORT).show();
-                } else if (avaliacao.getDescricao().isEmpty()) {
-                    Toast.makeText(AvaliacaoActivity.this, "Informe alguma descrição", Toast.LENGTH_SHORT).show();
-                } else if (avaliacao.getNota().isEmpty() || avaliacao.getNota().equals("SFA") || avaliacao.getNota().equals("SFS") || avaliacao.getNota().equals("SFO")) {
-                    Toast.makeText(AvaliacaoActivity.this, "Dê alguma nota - SFA, SFS ou SFO", Toast.LENGTH_SHORT).show();
-                }
-                else
-                    Toast.makeText(AvaliacaoActivity.this, "...", Toast.LENGTH_SHORT).show();
-
-                //-------------------------------------------------------------------------------------------------------
-
-                if (alterar) {
-                    Toast.makeText(getApplicationContext(), "Dados alterados com sucesso!\n" + "Obrigado pela sua avaliação!!!", Toast.LENGTH_LONG).show();
-                } else {
-                    Toast.makeText(getApplicationContext(), "Dados inseridos com sucesso!\n" + "Obrigado pela sua avaliação!!!", Toast.LENGTH_LONG).show();
                 }
 
+                //-------------------
+
+                if (!avaliacao.getUsuarioNome().isEmpty() && !avaliacao.getNota().isEmpty()){
+                    bancoController.salvar(avaliacao);
+                    if (alterar) {
+                        Toast.makeText(getApplicationContext(), "Alteração de dados completa!\n" + "Obrigado pela sua reavaliação!!!", Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Dados inseridos com sucesso!\n" + "Obrigado pela sua avaliação!!!", Toast.LENGTH_LONG).show();
+                    }
                     finish();
+                }
+            }
+        });
+
+        btn_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                    avaliacao.setUsuarioNome("");
+                    avaliacao.setDescricao("");
+                    avaliacao.setNota("");
+                    finish();
+                    bancoController.excluir(avaliacao);
+                Toast.makeText(AvaliacaoActivity.this, "Avaliação deletada :( \n" + "Caso queira nos avaliar, estamos esperando!", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -110,24 +120,6 @@ public class AvaliacaoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 finish();
-            }
-        });
-        btn_delete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (avaliacao.getUsuarioNome().isEmpty()){
-                    Toast.makeText(AvaliacaoActivity.this, "Informe o nome de usuário", Toast.LENGTH_SHORT).show();
-                }else if (avaliacao.getDescricao().isEmpty()){
-                    Toast.makeText(AvaliacaoActivity.this, "Informe alguma descrição", Toast.LENGTH_SHORT).show();
-                }else if (avaliacao.getNota().isEmpty() || avaliacao.getNota().equals("SFA") || avaliacao.getNota().equals("SFS") || avaliacao.getNota().equals("SFO")){
-                    Toast.makeText(AvaliacaoActivity.this, "Dê alguma nota - SFA, SFS ou SFO", Toast.LENGTH_SHORT).show();
-                }else
-                    avaliacao.setUsuarioNome("");
-                    avaliacao.setDescricao("");
-                    avaliacao.setNota("");
-                    finish();
-                    bancoController.excluir(avaliacao);
-                Toast.makeText(AvaliacaoActivity.this, "Avaliação deletada :( \n" + "Caso queira nos avaliar, estamos esperando!", Toast.LENGTH_SHORT).show();
             }
         });
     }

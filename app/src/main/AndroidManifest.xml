@@ -60,11 +60,13 @@
             android:name=".AboutActivity"
             android:label="Sobre o aplicativo"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
+
+        <!--
         <activity
             android:name=".NewVisitActivity"
             android:label="Visita"
             android:theme="@style/AppThemeAuth" />
-        <!--
+       ======================================================================================
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
              Note that the API key is linked to the encryption key used to sign the APK.

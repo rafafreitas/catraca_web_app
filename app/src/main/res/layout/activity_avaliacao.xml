@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/main_background_selector"
     android:orientation="vertical"
     tools:context="com.example.rafael.catraca_web_app.AvaliacaoActivity">
 
@@ -15,10 +16,10 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:paddingTop="15dp"
+            android:text="Todos os '*' são obrigatórios!"
             android:textAlignment="center"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Ficaremos gratos por sua avaliação!"
+            android:textColor="@color/colorWhite"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -28,57 +29,84 @@
             android:orientation="vertical"
             android:paddingTop="20dp">
 
-            <TextView
-                android:id="@+id/textView"
-                android:textAlignment="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Usuário"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <android.support.design.widget.TextInputLayout android:layout_height="wrap_content"
+                android:layout_width="match_parent" />
 
             <EditText
                 android:id="@+id/editTextUsuario"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:maxLines="1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/colorAccent"
+                android:textColor="@color/colorBlack"
+                android:drawableStart="@drawable/ic_person_black"
+                android:drawablePadding="5dp"
+                android:hint="*Seu nome*"
+                android:fontFamily="@font/allerregular"
+                />
 
-            <TextView
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Descrição"
-                android:textAlignment="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+            <android.support.design.widget.TextInputLayout android:layout_height="wrap_content"
+                android:layout_width="match_parent" />
 
             <EditText
                 android:id="@+id/editTextDescricao"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:maxLines="3"
                 android:layout_width="match_parent"
-                android:layout_height="150dp" />
+                android:layout_height="100dp"
+                android:textColorHint="@color/colorAccent"
+                android:textColor="@color/colorBlack"
+                android:drawableStart="@drawable/ic_mode_edit_black_24dp"
+                android:drawablePadding="5dp"
+                android:hint="Descrição"
+                android:fontFamily="@font/allerregular"
+                />
 
-            <TextView
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Nota"
-                android:textAlignment="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+            <android.support.design.widget.TextInputLayout android:layout_height="wrap_content"
+                android:layout_width="match_parent" />
 
             <EditText
                 android:id="@+id/editTextNota"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:maxLines="1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/colorAccent"
+                android:textColor="@color/colorBlack"
+                android:drawableStart="@drawable/ic_date_range_black"
+                android:drawablePadding="5dp"
+                android:hint="*Nota da avaliação*"
+                android:fontFamily="@font/allerregular"
+                android:paddingBottom="50dp"
+                />
 
             <Button
-                    android:id="@+id/btn_classificarAvaliacao"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Classificar" />
+                android:background="@drawable/botao_personalizado"
+                android:id="@+id/btn_classificarAvaliacao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/allerregular"
+                android:textColor="@color/colorWhite"
+                android:text="Classificar" />
 
             <Button
-                    android:id="@+id/btn_delete"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Delete" />
+                android:id="@+id/btn_delete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/botao_personalizado"
+                android:fontFamily="@font/allerregular"
+                android:textColor="@color/colorWhite"
+                android:text="Delete" />
+
 
             <Button
                 android:id="@+id/btn_voltarAvaliacao"
+                android:textColor="@color/colorWhite"
+                android:background="@drawable/botao_personalizado"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Voltar" />

@@ -99,6 +99,11 @@
     <string name="add_opcao_01">Adicionar Visitante</string>
     <string name="add_opcao_02">Adicionar Veículo</string>
 
+    <!-- About Activity -->
+    <string name="activity_avaliacao">Avaliaç1ão</string>
+    <string name="btn_delete">Delete</string>
+    <string name="btn_classificarAvaliacao">Classificar</string>
+    <string name="btn_voltarAvaliacao">Voltar</string>
 
     <string-array name="types_user">
         <item id="1">CPF</item>

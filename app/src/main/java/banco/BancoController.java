@@ -1,16 +1,19 @@
 package banco;
 
+import android.app.AlertDialog;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.NonNull;
+import android.widget.Toast;
 
 import com.example.rafael.catraca_web_app.AvaliacaoActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import basic.Auth;
 import basic.Avaliacao;
 import basic.Usuario;
 

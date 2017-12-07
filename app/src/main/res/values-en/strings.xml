@@ -1,0 +1,115 @@
+<resources>
+    <!-- APP -->
+    <string name="app_name">CatracaWeb</string>
+    <string name="app_name_ok">CatracaWeb</string>
+    <string name="app_splash">Acess Control</string>
+    <string name="info_copyright">©-CatracaWeb - 2017</string>
+    <!-- Inputs -->
+    <string name="hint_nome">Put your name</string>
+    <string name="hint_email_cad">Acess E-Mail</string>
+    <string name="hint_email_reset">Registered E-Mail</string>
+    <string name="hint_email">E-Mail</string>
+    <string name="hint_pass">Password</string>
+    <string name="hint_cpf_cnpj">Put your CNPJ here</string>
+    <string name="hint_cpf">Put your CPF here</string>
+    <string name="hint_date_fis">Date of Birth</string>
+    <string name="hint_date_jur">Company Foundation</string>
+    <string name="hint_date_reset">Recorded Date*</string>
+    <!-- Botões -->
+    <string name="btn_access">Acess</string>
+    <string name="btn_cad">Registered</string>
+    <string name="btn_reset_pass">Reset Password</string>
+    <string name="btn_update_data">Update data</string>
+    <string name="btn_client">Already a customer?</string>
+    <string name="btn_login">Login</string>
+    <string name="btn_forgot">Forgot your password?</string>
+    <string name="btn_new_client">Not a customer?</string>
+    <string name="btn_question_pass">Which date?</string>
+    <!-- Botões Menu-->
+    <string name="btn_account">My Account</string>
+    <string name="btn_maps">Maps</string>
+    <string name="btn_about">About</string>
+    <string name="btn_logout">Out</string>
+    <!-- Botões DashBoard-->
+    <string name="btn_car">Vehicle Registration</string>
+    <string name="btn_new_visits">Generate Visit</string>
+    <string name="btn_visits_actives">Active Visits</string>
+    <string name="btn_user_config">User Configuration</string>
+    <!-- Avisos -->
+    <string name="info_new_user_01">New here? \n Thank you!</string>
+    <string name="info_new_user_02">Thanks!</string>
+    <string name="info_new_user_03">You need to register for use our services</string>
+    <string name="info_new_user_cad">Need to recover your password in future</string>
+    <string name="info_reset_pass_01">Forgot your password? No problem!</string>
+    <string name="info_reset_pass_02">No problem!</string>
+    <string name="info_reset_pass_03">* A new password is already send to your email</string>
+    <string name="info_reset_pass_04">Information:\n Date of birth or \n Company foundation.</string>
+    <string name="info_reset_pass_05">*Date of birth or Company Foundation.</string>
+    <string name="info_internet">Please verify your ethernet connection.</string>
+    <string name="info_success">Updated informations with sucess</string>
+    <!-- Avisos Threads -->
+    <string name="info_login">Loggin in...</string>
+    <string name="info_update">Update data...</string>
+
+    <!-- Validações de Formulário-->
+    <string name="err_msg_required">Fill this field!</string>
+    <string name="err_msg_nome">Report a name</string>
+    <string name="err_msg_email">Report a valid e-mail adress</string>
+    <string name="err_msg_password">Report a password!</string>
+    <string name="err_msg_date">Report a valid date!</string>
+    <string name="err_msg_cpf">Report a valid CPF!</string>
+    <string name="err_msg_cnpj">Report a valid CNPJ!</string>
+    <!-- TABS -->
+    <string name="tab_visitors">Visitors</string>
+    <string name="tab_cars">Vehicles</string>
+    <string name="tab_home">Home</string>
+    <!-- Card View -->
+    <string name="card_linechart_top">Welcome!</string>
+    <string name="card_linechart_bottom">* Most details in active visits</string>
+    <!-- Telas -->
+    <string name="msq_user_data">My Data</string>
+
+    <!-- Fragment Veículos -->
+    <string name="hint_search_plate">Search for plate</string>
+    <string name="msq_car_data">Data of vehicle</string>
+    <string name="hint_plate">Report plate</string>
+    <string name="hint_model">Report model</string>
+    <string name="hint_alter_car_image">Touch in picture to change</string>
+    <string name="btn_save_car">Save date</string>
+    <string name="error_wrong_search_plate">Incomplete vehicle plate</string>
+
+    <string name="image_dialog_title">Select an option</string>
+    <string name="image_get_camera">Capture a photo</string>
+    <string name="image_get_gallery">Select a photo gallery</string>
+
+    <!-- Fragment Visitantes -->
+    <string name="hint_search_cpf">Find CPF</string>
+    <string name="msq_visitantes">Data of visitor</string>
+    <string name="hint_visit_nome">Report name</string>
+    <string name="hint_visit_rg">Report RG</string>
+    <string name="hint_alter_face">Visitor photo</string>
+    <string name="hint_alter_doc">Document photo</string>
+    <string name="btn_save_visitante">Save data</string>
+
+    <!-- Fragment GerarVisita -->
+    <string name="msg_gerar_visita">Generate Visit</string>
+    <string name="msg_motivos">Visit reason</string>
+    <string name="msg_responsaveis">Responsible for visit</string>
+    <string name="dica_gerar_visita">Search for CPF of Plate.\nAdd as many records as needed.</string>
+    <string name="add_opcao_01">Add Visitor</string>
+    <string name="add_opcao_02">Add Vehicle</string>
+
+    <!-- About Activity -->
+    <string name="activity_avaliacao">Evaluation</string>
+    <string name="btn_delete">Delete</string>
+    <string name="btn_classificarAvaliacao">Rank</string>
+    <string name="btn_voltarAvaliacao">Back</string>
+
+    <string-array name="types_user">
+        <item id="1">CPF</item>
+        <item id="2">CNPJ</item>
+    </string-array>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_new_visits">newVisitsActivity</string>
+
+</resources>
