@@ -10,10 +10,11 @@
     <color name="colorBlack">#000000</color>
     <color name="colorNPrimary">#347979</color>
     <color name="colorNPrimaryDark">#262e2e</color>
-
+    FFBA31
     <!-- CardViewer -->
     <color name="colorCardViewer">#afafaf</color>
     <color name="colorBackgroud">#F7F7F7</color>
+    <color name="colorBackgroud2">#FFBA31</color>
 
 
     <!-- Padrões -->
