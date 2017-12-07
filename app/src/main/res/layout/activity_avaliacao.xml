@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/main_background_selector"
+    android:background="@color/colorWhite"
     android:orientation="vertical"
     tools:context="com.example.rafael.catraca_web_app.AvaliacaoActivity">
 
@@ -16,6 +16,8 @@
         android:layout_height="match_parent">
 
         <TextView
+            android:paddingTop="30dp"
+            android:background="@drawable/botao_personalizado"
             android:text="Todos os '*' são obrigatórios!"
             android:textAlignment="center"
             android:textColor="@color/colorWhite"
