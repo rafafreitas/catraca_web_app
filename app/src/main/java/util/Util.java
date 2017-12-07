@@ -123,7 +123,9 @@ public class Util {
 
     public static void stopProgressDialog()
     {
-        pd.dismiss();
+        if ((pd != null) && pd.isShowing()) {
+            pd.dismiss();
+        }
     }
 
     public static void showMessage(String Mensagem, String Titulo, final Context Activity, int acao)

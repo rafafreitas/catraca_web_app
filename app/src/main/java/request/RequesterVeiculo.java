@@ -35,15 +35,22 @@ public class RequesterVeiculo {
         this.context = context;
     }
 
-    public void saveVeiculo(Veiculos veiculo) throws JSONException, InterruptedException, ExecutionException{
+    public String saveVeiculo(Veiculos veiculo) throws JSONException, InterruptedException, ExecutionException{
 
         final JSONObject json = new JSONObject();
         auth = Auth.getInstance();
 
-        json.put("veic_id", veiculo.getVeic_id());
+        json.put("user_email", auth.getUsuario().getUser_email());
+        json.put("user_senha", auth.getUsuario().getUser_senha());
         json.put("veic_placa", veiculo.getVeic_placa());
         json.put("veic_modelo", veiculo.getVeic_modelo());
         json.put("veic_foto", veiculo.getVeic_foto());
+        if(veiculo.getUser_id() > 0){
+            json.put("veic_id", veiculo.getVeic_id());
+        }else{
+            json.put("veic_id", "");
+        }
+
 
         BaseRequester baseRequester = new BaseRequester();
         baseRequester.setUrl(Requester.API_URL + "/veiculo/cadastro");
@@ -59,15 +66,19 @@ public class RequesterVeiculo {
         auth.setStatusAPI(jsonObjectResponse.get("status").toString());
         auth.setMessage(jsonObjectResponse.get("message").toString());
 
+        String errorMessage = jsonObjectResponse.get("result").toString();
+
         if(jsonObjectResponse.get("message").toString().equals("ERROR")){
             //Informar o usuário
-            String errorMessage = jsonObjectResponse.get("result").toString();
+
             auth.setMensagemErroApi(errorMessage);
             Log.d("API",errorMessage);
+            return errorMessage;
         }else{
             //Atualizar o objeto de informações principais
             AddAuth a = new AddAuth();
             a.feedAuth(jsonObjectResponse);
+            return errorMessage;
         }
     }
 

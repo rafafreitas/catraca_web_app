@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Vibrator;
@@ -34,7 +35,11 @@ import com.example.rafael.catraca_web_app.UserDataActivity;
 import org.json.JSONException;
 
 import java.io.IOException;
+import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 import basic.Auth;
 import basic.Usuario;
@@ -122,7 +127,49 @@ public class FragmentCars extends Fragment {
             public void onClick(View v) {
                 //Validar form e depois salvar
                 if(formIsValid()){
+                    if(!internet.verificarConexao()){
 
+                        new android.support.v7.app.AlertDialog.Builder(getActivity())
+                                .setCancelable(false)
+                                .setTitle(R.string.app_name)
+                                .setMessage(R.string.info_internet)
+
+                                // Positive button
+                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+
+                                    }
+                                }).show();
+                    }else{
+                        final Veiculos saveVeiculo = getFromForm();
+
+                        Util.AtivaDialogHandler(2, "", "Saving...");
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                RequesterVeiculo rv = new RequesterVeiculo();
+
+                                try{
+                                    rv.setContext(getActivity());
+                                    String result = rv.saveVeiculo(saveVeiculo);
+
+                                    auth = Auth.getInstance();
+
+                                    if (auth.getMessage().equals("ERROR")) {
+                                        Util.AtivaDialogHandler(5, "", "");
+                                        Util.AtivaDialogHandler(1, "CatracaWeb", auth.getMensagemErroApi());
+                                    }else{
+                                        Util.stopProgressDialog();
+                                        Util.AtivaDialogHandler(1, "CatracaWeb", result );
+                                        //Toast.makeText(getApplicationContext(), "Dados Atualizados.", Toast.LENGTH_SHORT).show();
+                                    }
+                                }catch(Exception e){
+                                    Util.stopProgressDialog();
+                                    e.printStackTrace();
+                                }
+                            }
+                        }).start();
+                    }
                 }
             }
         });
@@ -161,42 +208,46 @@ public class FragmentCars extends Fragment {
                                 }).show();
                     }
                     else{
-                        Util.AtivaDialogHandler(2, "", "Buscando...");
-                        new Thread(new Runnable() {
+                        //Util.AtivaDialogHandler(2, "", "Searching...");
+
+                        Callable<Veiculos> myCallable = new Callable<Veiculos>(){
 
                             @Override
-                            public void run() {
+                            public Veiculos call(){
+
                                 RequesterVeiculo rv = new RequesterVeiculo();
 
                                 try {
                                     rv.setContext(getActivity());
                                     veiculo = rv.checkVeiculoByPlaca(placaSearch);
-
-                                    auth = Auth.getInstance();
-
-                                    if (auth.getMessage().equals("ERROR")) {
-                                        Util.AtivaDialogHandler(5, "", "");
-                                        Util.AtivaDialogHandler(1, getString(R.string.app_name), auth.getMensagemErroApi());
-                                    } else {
-                                        Util.stopProgressDialog();
-                                        feedForm();
-                                    }
                                 }catch (Exception e){
-                                    Util.stopProgressDialog();
+                                    //Util.stopProgressDialog();
                                     e.printStackTrace();
                                 }
-//                                }catch (JSONException e) {
-//                                    Util.stopProgressDialog();
-//                                    e.printStackTrace();
-//                                } catch (InterruptedException e) {
-//                                    Util.stopProgressDialog();
-//                                    e.printStackTrace();
-//                                } catch (ExecutionException e) {
-//                                    Util.stopProgressDialog();
-//                                    e.printStackTrace();
-//                                }
+                                return  veiculo;
                             }
-                        }).start();
+                        };
+
+                        ExecutorService executor = Executors.newFixedThreadPool(1);
+                        Future<Veiculos> future = executor.submit(myCallable);
+
+                        try {
+                            Veiculos v = future.get();
+                            auth = Auth.getInstance();
+
+                            if (auth.getMessage().equals("ERROR")) {
+                                Util.AtivaDialogHandler(5, "", "");
+                                Util.AtivaDialogHandler(1, getString(R.string.app_name), auth.getMensagemErroApi());
+                            } else {
+                                if(v != null){
+                                    feedForm();
+                                }
+                               // Util.stopProgressDialog();
+                            }
+
+                        } catch (Exception e){
+                            e.printStackTrace();
+                        }
                     }
                 }
                 return false;
@@ -217,12 +268,28 @@ public class FragmentCars extends Fragment {
             return;
         }
         inputPlate.setText(veiculo.getVeic_placa());
-        inputPlate.setEnabled(veiculo.getUser_id() < 1);
+        //inputPlate.setEnabled(veiculo.getUser_id() < 1);
 
         inputModel.setText(veiculo.getVeic_modelo());
-        if (false) {
-            btnCarImageView.setImageBitmap(Util.getImageFromBase64(veiculo.getVeic_foto()));
+        if(!veiculo.getVeic_foto().equals("")) {
+            Bitmap image = Util.getImageFromBase64(veiculo.getVeic_foto());
+            btnCarImageView.setImageBitmap(image);
         }
+
+    }
+
+    private Veiculos getFromForm(){
+        Veiculos v = new Veiculos();
+        if(veiculo != null){
+            v.setVeic_id(veiculo.getVeic_id());
+        }
+        v.setVeic_placa(inputPlate.getText().toString());
+        v.setVeic_modelo(inputModel.getText().toString());
+        Bitmap image = ((BitmapDrawable)btnCarImageView.getDrawable()).getBitmap();
+        v.setVeic_foto(Util.getBase64Image(image));
+        v.setUser_id(auth.getUsuario().getUser_id());
+
+        return v;
     }
 
     private void showPictureDialog(){
@@ -262,16 +329,14 @@ public class FragmentCars extends Fragment {
 
     private boolean formIsValid(){
 
-        if(veiculo == null){
-            if(inputPlate.getText().toString().length() < 8){
-                inputPlate.setAnimation(animShake);
-                inputPlate.startAnimation(animShake);
-                vib.vibrate(120);
-                inputPlate.setError(getString(R.string.err_msg_required));
-                layoutPlate.setError(getString(R.string.error_wrong_search_plate));
-                layoutPlate.setErrorEnabled(true);
-                return false;
-            }
+        if(inputPlate.getText().toString().length() < 8){
+            inputPlate.setAnimation(animShake);
+            inputPlate.startAnimation(animShake);
+            vib.vibrate(120);
+            inputPlate.setError(getString(R.string.err_msg_required));
+            layoutPlate.setError(getString(R.string.error_wrong_search_plate));
+            layoutPlate.setErrorEnabled(true);
+            return false;
         }
         if(inputModel.getText().toString().length() < 1){
             inputModel.setAnimation(animShake);
