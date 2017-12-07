@@ -72,7 +72,7 @@
                 android:id="@+id/cv_info_visits"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:backgroundTint="#fd1c585a"
+                android:backgroundTint="#fd296d70"
                 card_view:cardElevation="4dp"
                 card_view:cardCornerRadius="15dp"
                 >

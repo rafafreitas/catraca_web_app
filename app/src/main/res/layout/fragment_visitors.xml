@@ -146,7 +146,7 @@
             android:layout_height="200dp"
             android:layout_marginTop="10dp"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/ic_visitante_image_face"
+            android:src="@drawable/ic_visitante_image_face_cam"
             android:clickable="true"/>
 
         <TextView
@@ -173,7 +173,7 @@
             android:layout_height="200dp"
             android:layout_marginTop="10dp"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/ic_visitante_image_doc"
+            android:src="@drawable/ic_visitante_image_doc_cam"
             android:clickable="true"/>
 
         <Button

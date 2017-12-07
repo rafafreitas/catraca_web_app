@@ -18,6 +18,7 @@
     <!-- Botões -->
     <string name="btn_access">Acessar</string>
     <string name="btn_cad">Cadastrar</string>
+    <string name="btn_add">Adicionar</string>
     <string name="btn_reset_pass">Receber nova senha</string>
     <string name="btn_update_data">Atualizar dados</string>
     <string name="btn_client">Já é cliente?</string>
@@ -95,7 +96,7 @@
     <string name="msg_gerar_visita">Gerar Visita</string>
     <string name="msg_motivos">Motivo da Visita</string>
     <string name="msg_responsaveis">Responsável pela Visita</string>
-    <string name="dica_gerar_visita">Busque pelo CPF ou Placa.\nAdicione quantos registros forem necessários.</string>
+    <string name="dica_gerar_visita">✔ Informe o Responsável.\n✔ Selecione o motivo.\n✔Adicione os visitantes.\n✔Se precisar os veículos.</string>
     <string name="add_opcao_01">Adicionar Visitante</string>
     <string name="add_opcao_02">Adicionar Veículo</string>
 
