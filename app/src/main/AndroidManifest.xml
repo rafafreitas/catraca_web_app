@@ -58,8 +58,8 @@
             android:theme="@style/AppThemeAuth" />
         <activity
             android:name=".AboutActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            android:label="Sobre o aplicativo" />
+            android:label="Sobre o aplicativo"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".NewVisitActivity"
             android:label="Visita"
@@ -83,9 +83,12 @@
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
         <activity
-            android:label="Avaliação"
-            android:name=".AvaliacaoActivity">
-        </activity>
+            android:name=".AvaliacaoActivity"
+            android:label="Avaliação"></activity>
+        <activity
+            android:name=".NewVisitsActivity"
+            android:label="@string/title_activity_new_visits"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
