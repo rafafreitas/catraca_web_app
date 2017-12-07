@@ -36,5 +36,4 @@
 
     <include layout="@layout/fab_layout" />
 
-
 </android.support.design.widget.CoordinatorLayout>

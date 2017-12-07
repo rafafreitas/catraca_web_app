@@ -96,6 +96,8 @@
     <string name="msg_motivos">Motivo da Visita</string>
     <string name="msg_responsaveis">Responsável pela Visita</string>
     <string name="dica_gerar_visita">Busque pelo CPF ou Placa.\nAdicione quantos registros forem necessários.</string>
+    <string name="add_opcao_01">Adicionar Visitante</string>
+    <string name="add_opcao_02">Adicionar Veículo</string>
 
 
     <string-array name="types_user">

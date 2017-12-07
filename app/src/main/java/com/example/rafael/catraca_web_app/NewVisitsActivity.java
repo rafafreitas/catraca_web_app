@@ -1,5 +1,7 @@
 package com.example.rafael.catraca_web_app;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -11,6 +13,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import basic.Auth;
 import util.Internet;
@@ -33,6 +36,8 @@ public class NewVisitsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_visits);
 
+        initToolbar();
+
         rootLayout = (CoordinatorLayout) findViewById(R.id.coordinatorLayout);
 
         fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -40,7 +45,7 @@ public class NewVisitsActivity extends AppCompatActivity {
         show_fab = AnimationUtils.loadAnimation(getApplication(), R.anim.fab_show);
         hide_fab = AnimationUtils.loadAnimation(getApplication(), R.anim.fab_hide);
 
-        initToolbar();
+
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,16 +56,39 @@ public class NewVisitsActivity extends AppCompatActivity {
 
                 if (flag == false) {
                     //Display FAB menu
-                    expandFAB();
+                    showAdd();
                     flag = true;
                 } else {
                     //Close FAB menu
-                    hideFAB();
+                    showAdd();
                     flag = false;
                 }
 
             }
         });
+    }
+
+    private void showAdd(){
+        AlertDialog.Builder pictureDialog = new AlertDialog.Builder(this);
+        pictureDialog.setTitle(getString(R.string.image_dialog_title));
+        String[] pictureDialogItems = {
+                getString(R.string.add_opcao_01),
+                getString(R.string.add_opcao_02) };
+        pictureDialog.setItems(pictureDialogItems,
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which) {
+                            case 0:
+                                Toast.makeText(NewVisitsActivity.this, "001", Toast.LENGTH_SHORT).show();;
+                                break;
+                            case 1:
+                                Toast.makeText(NewVisitsActivity.this, "002", Toast.LENGTH_SHORT).show();;
+                                break;
+                        }
+                    }
+                });
+        pictureDialog.show();
     }
 
     private void expandFAB() {
