@@ -75,7 +75,7 @@
     <string name="hint_plate">Report plate</string>
     <string name="hint_model">Report model</string>
     <string name="hint_alter_car_image">Touch in picture to change</string>
-    <string name="btn_save_car">Save date</string>
+    <string name="btn_save_car">Save data</string>
     <string name="error_wrong_search_plate">Incomplete vehicle plate</string>
 
     <string name="image_dialog_title">Select an option</string>

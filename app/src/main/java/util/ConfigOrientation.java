@@ -30,5 +30,4 @@ public class ConfigOrientation {
         }
         return retornoOrientacao;
     }
-
 }
